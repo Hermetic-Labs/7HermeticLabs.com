@@ -28,54 +28,12 @@
 </header>
 
 <main style="max-width: 1000px; padding: 2rem;">
-    <div class="viewer-container">
-        <div class="viewer-header">
-            <span style="color: #a3a3a3; font-size: 0.9rem;">Developers Without Borders</span>
-            <a href="#" onclick="forceDownload(event, 'Developers without Borders/Developers Without Borders pledge certificate.png', 'Developers_Without_Borders_Pledge.png')" class="btn-download">
-                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
-                Download Certificate
-            </a>
-        </div>
-        <img src="Developers without Borders/Developers Without Borders pledge certificate.png" alt="Pledge Certificate" class="certificate-img">
-    </div>
+    <img src="Developers without Borders/Developers Without Borders pledge certificate.png" alt="Pledge Certificate" class="certificate-img">
 </main>
 
 <footer>
     &copy; 2026 Hermetic Labs. All rights reserved.
 </footer>
-
-<script>
-function forceDownload(e, url, filename) {
-    e.preventDefault();
-    
-    // Change button text to show progress
-    const btn = e.currentTarget;
-    const originalText = btn.innerHTML;
-    btn.innerHTML = 'Downloading...';
-    
-    const encodedUrl = encodeURI(url);
-    
-    fetch(encodedUrl)
-        .then(response => {
-            if (!response.ok) throw new Error('File not found');
-            return response.blob();
-        })
-        .then(blob => {
-            const blobUrl = window.URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = blobUrl;
-            a.download = filename;
-            document.body.appendChild(a);
-            a.click();
-            a.remove();
-            window.URL.revokeObjectURL(blobUrl);
-            btn.innerHTML = originalText;
-        })
-        .catch(err => {
-            console.error('Download failed:', err);
-            btn.innerHTML = originalText;
-        });
-}
-</script>
 </body>
 </html>
+
