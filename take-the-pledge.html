@@ -53,8 +53,13 @@ function forceDownload(e, url, filename) {
     const originalText = btn.innerHTML;
     btn.innerHTML = 'Downloading...';
     
-    fetch(url)
-        .then(response => response.blob())
+    const encodedUrl = encodeURI(url);
+    
+    fetch(encodedUrl)
+        .then(response => {
+            if (!response.ok) throw new Error('File not found');
+            return response.blob();
+        })
         .then(blob => {
             const blobUrl = window.URL.createObjectURL(blob);
             const a = document.createElement('a');
