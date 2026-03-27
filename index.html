@@ -1,86 +1,408 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Whitepaper - Research-and benchmarks</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hermetic Labs — Building Local-First Systems for High-Stakes Environments</title>
+  <meta name="description" content="Hermetic Labs develops EVE-OS, a local-first AI operating system for regulated and critical environments. Safety, governance, and human oversight built into the architecture.">
+  <meta name="keywords" content="EVE-OS, Hermetic Labs, local-first AI, HIPAA, compliance, safety-first, operating system, air-gapped, medical AI">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Hermetic Labs — EVE-OS">
+  <meta property="og:description" content="Building local-first systems for high-stakes environments. Creators of EVE-OS.">
+  <meta property="og:image" content="images/og-image.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://7hermeticlabs.com">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="images/icon.png">
+  <link rel="icon" href="images/icon.png" sizes="192x192">
+  <link rel="apple-touch-icon" href="images/icon.png" sizes="180x180">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<header>
-    <h1 class="title-glow">Whitepaper - Research-and benchmarks</h1>
-    <p class="subtitle">Hermetic Labs Public Research</p>
-</header>
-
-<main>
-    <div class="paper-list">
-        <a href="pressure-valve-series.html" class="paper-card">
-            <div class="paper-info">
-                <h2>Pressure Valve Series</h2>
-                <p>A collection of 4 foundational whitepapers.</p>
-            </div>
-            <div class="forward-icon">
-                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-            </div>
-        </a>
-
-        <a href="HERMETIC_LABS_Logos/HERMETIC_LABS_Logos/index.html" class="paper-card">
-            <div class="paper-info">
-                <h2>Languages and Logo</h2>
-                <p>Explore the Hermetic Labs logo across 41 languages.</p>
-            </div>
-            <div class="forward-icon">
-                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-            </div>
-        </a>
-
-        <a href="eve-os.html" class="paper-card">
-            <div class="paper-info">
-                <h2>EVE OS</h2>
-                <p>Unified Application and Marketplace ecosystem.</p>
-            </div>
-            <div class="forward-icon">
-                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-            </div>
-        </a>
-
-        <a href="hermetic-exchange.html" class="paper-card">
-            <div class="paper-info">
-                <h2>Hermetic Exchange</h2>
-                <p>Storefront and API Control Surface architecture.</p>
-            </div>
-            <div class="forward-icon">
-                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-            </div>
-        </a>
-
-        <a href="hermetic-triage.html" class="paper-card">
-            <div class="paper-info">
-                <h2>Hermetic Labs Triage</h2>
-                <p>Medic Info Triage Management System.</p>
-            </div>
-            <div class="forward-icon">
-                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-            </div>
-        </a>
-
-        <a href="take-the-pledge.html" class="paper-card">
-            <div class="paper-info">
-                <h2>Take the Pledge</h2>
-                <p>Developers Without Borders pledge certificate.</p>
-            </div>
-            <div class="forward-icon">
-                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-            </div>
-        </a>
+  <!-- ========== NAVIGATION ========== -->
+  <nav class="nav" id="nav">
+    <a href="#home" class="nav-brand">
+      <img src="images/hermetic-wordmark.png" alt="Hermetic Labs" style="height: 28px; width: auto; opacity: 0.9;">
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="#home" class="active">Home</a>
+      <a href="#about">EVE-OS</a>
+      <a href="#in-the-field">In the Field</a>
+      <a href="#exchange">Exchange</a>
+      <a href="#impact">Impact</a>
+      <a href="#research">Research</a>
+      <a href="#contact">Contact</a>
     </div>
-</main>
+    <div class="hamburger" id="hamburger" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
 
-<footer>
-    &copy; 2026 Hermetic Labs. All rights reserved.
-</footer>
+  <!-- ========== HERO ========== -->
+  <section class="hero" id="home">
+    <div class="hero-content fade-in">
+      <img src="images/hermetic-logo.png" alt="Hermetic Labs Logo" class="hero-logo" width="270" height="270">
+      <h1 class="hero-title text-gradient">HERMETIC LABS</h1>
+      <p class="hero-tagline">Building local-first systems<br>for high-stakes environments</p>
+    </div>
+    <div class="hero-divider"></div>
+  </section>
 
+  <!-- ========== ABOUT EVE-OS ========== -->
+  <section id="about">
+    <div class="container">
+      <div class="about-header fade-in">
+        <img src="images/Eve os.png" alt="EVE-OS" style="max-width: 280px; margin: 0 auto 24px; display: block;">
+        <div class="section-divider"></div>
+        <p class="about-lead text-gradient">A Safety-First Operating System</p>
+        <p class="about-desc">
+          EVE-OS is the core platform developed by Hermetic Labs.
+          It is a local-first, <strong>safety-oriented</strong> operating system designed for high-stakes and regulated environments where reliability, transparency, and human oversight are essential.
+        </p>
+        <p class="about-desc">
+          EVE-OS was created to support real-world decision-making — not abstract experimentation. It is built to operate under constraint, maintain accountability, and remain dependable even when infrastructure, connectivity, or conditions are imperfect.
+        </p>
+      </div>
+
+      <div class="pillars fade-in">
+        <div class="pillar">
+          <h3 class="text-gradient">Decision Integrity</h3>
+          <ul>
+            <li>Explainable, context-aware insights</li>
+            <li>Configurable human-in-the-loop workflows</li>
+          </ul>
+        </div>
+        <div class="pillar">
+          <h3 class="text-gradient">Operational Assurance</h3>
+          <ul>
+            <li>Continuous performance and safety monitoring</li>
+            <li>Real-time alerting and system observability</li>
+          </ul>
+        </div>
+        <div class="pillar">
+          <h3 class="text-gradient">Governance by Design</h3>
+          <ul>
+            <li>Secure data isolation and governed access</li>
+            <li>Architecture-level compliance controls</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="feature-grid fade-in">
+        <div class="feature-item">
+          <span class="feat-icon">🧠</span>
+          <div><h4>Local LLMs</h4><p>On-device AI inference, no cloud dependency</p></div>
+        </div>
+        <div class="feature-item">
+          <span class="feat-icon">🔀</span>
+          <div><h4>Flow Studio</h4><p>Visual node-based programming environment</p></div>
+        </div>
+        <div class="feature-item">
+          <span class="feat-icon">🛡️</span>
+          <div><h4>Compliance Suites</h4><p>HIPAA, FedRAMP, ITAR, PCI-DSS, SOX</p></div>
+        </div>
+        <div class="feature-item">
+          <span class="feat-icon">🔌</span>
+          <div><h4>Enterprise Connectors</h4><p>AWS, Azure, Salesforce, SAP, Workday</p></div>
+        </div>
+        <div class="feature-item">
+          <span class="feat-icon">🗣️</span>
+          <div><h4>Voice & Vision AI</h4><p>Whisper STT, Stable Diffusion, TTS</p></div>
+        </div>
+        <div class="feature-item">
+          <span class="feat-icon">🎨</span>
+          <div><h4>3D Editors</h4><p>Three.js environments and intelligence visualizers</p></div>
+        </div>
+        <div class="feature-item">
+          <span class="feat-icon">🏪</span>
+          <div><h4>Marketplace</h4><p>Browse, install, and sell EVE-OS modules</p></div>
+        </div>
+        <div class="feature-item">
+          <span class="feat-icon">💳</span>
+          <div><h4>Payments & Commerce</h4><p>Stripe integration, subscriptions, licensing</p></div>
+        </div>
+      </div>
+
+      <p class="about-quote fade-in">
+        EVE-OS is built for environments where systems must behave predictably, decisions must be traceable, and accountability cannot be optional.
+      </p>
+    </div>
+  </section>
+
+  <!-- ========== HOW IT WORKS ========== -->
+  <section id="how-it-works">
+    <div class="container">
+      <div class="fade-in" style="text-align:center;">
+        <p class="section-label text-gradient">How <span class="text-gradient-accent">EVE-OS</span> Works</p>
+        <div class="section-divider"></div>
+      </div>
+
+      <div class="how-grid fade-in">
+        <div class="how-card">
+          <span class="how-icon">🧠</span>
+          <h3 class="text-gradient">Local-First Intelligence</h3>
+          <p>AI runs directly on device, not in the cloud</p>
+        </div>
+        <div class="how-card">
+          <span class="how-icon">🔒</span>
+          <h3 class="text-gradient">Deterministic Decisions</h3>
+          <p>Same input. Same output. Fully auditable.</p>
+        </div>
+        <div class="how-card">
+          <span class="how-icon">⚙️</span>
+          <h3 class="text-gradient">Modular Workflows</h3>
+          <p>Compose, validate, and deploy workflows safely</p>
+        </div>
+        <div class="how-card">
+          <span class="how-icon">🛡️</span>
+          <h3 class="text-gradient">Built-In Compliance</h3>
+          <p>Safety and regulation enforced at the system level</p>
+        </div>
+        <div class="how-card">
+          <span class="how-icon">👤</span>
+          <h3 class="text-gradient">Human-in-the-Loop</h3>
+          <p>Humans stay in control at every critical step</p>
+        </div>
+      </div>
+
+      <p class="how-tagline fade-in">Compliant by Design. &nbsp;Sealed by Architecture.</p>
+      <p class="how-quote fade-in">
+        "Commercial AI is pre-trained by the Company that makes it. The EVE-OS continually learns by the company it keeps."
+      </p>
+    </div>
+  </section>
+
+  <!-- ========== IN THE FIELD ========== -->
+  <section id="in-the-field" class="field-section">
+    <div class="container">
+      <div class="field-intro fade-in">
+        <p class="section-label text-gradient">In the Field</p>
+        <div class="section-divider"></div>
+        <img src="images/halt.png" alt="HALT — Hermetic Anonymous Local Triage" style="max-width: 280px; margin: 0 auto 24px; display: block; border-radius: var(--radius);">
+        <p class="field-desc">
+          HALT (Hermetic Anonymous Local Triage) is our philanthropic initiative — a free, open-source,
+          offline medical coordination system purpose-built for conflict zones and disaster response.
+          It shares our local-first philosophy but is an independent system, built lean for field deployment
+          where every megabyte matters.
+        </p>
+      </div>
+
+      <img src="images/Assets/ChatGPT Image Mar 23, 2026, 06_28_51 PM.png" alt="Field hospital operations" class="field-hero-img fade-in">
+
+      <div class="quote-grid fade-in">
+        <div class="quote-card">
+          <img src="images/Assets/tedros Adhanom Ghebreyesus.png" alt="Tedros Adhanom Ghebreyesus — WHO Director-General" loading="lazy">
+        </div>
+        <div class="quote-card">
+          <img src="images/Assets/ChatGPT Image Mar 23, 2026, 06_07_35 PM.png" alt="Chikwe Ihekweazu — WHO Health Emergencies" loading="lazy">
+        </div>
+        <div class="quote-card">
+          <img src="images/Assets/ChatGPT Image Mar 23, 2026, 06_10_26 PM.png" alt="Munzer Alkhalil — David Nott Foundation" loading="lazy">
+        </div>
+        <div class="quote-card">
+          <img src="images/Assets/card_front.png" alt="Dr. Michele Barry — Stanford Global Health" loading="lazy">
+        </div>
+      </div>
+
+      <div class="stats-row fade-in">
+        <div class="stat-item">
+          <div class="stat-num text-gradient">2,450+</div>
+          <div class="stat-label">Attacks on Healthcare</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num text-gradient">140+</div>
+          <div class="stat-label">Medical Facilities Hit</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num text-gradient">42</div>
+          <div class="stat-label">Languages Supported</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num text-gradient">20</div>
+          <div class="stat-label">Integrated Systems</div>
+        </div>
+      </div>
+
+      <div class="field-ctas fade-in">
+        <a href="https://hermeticlabs.app" target="_blank" class="btn btn-primary">Learn More at hermeticlabs.app →</a>
+        <a href="https://github.com/Hermetic-Labs/halt" target="_blank" class="btn btn-outline">Contribute on GitHub →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== EXCHANGE ========== -->
+  <section id="exchange">
+    <div class="container">
+      <div class="fade-in" style="text-align:center;">
+        <p class="section-label text-gradient">Hermetic Labs Exchange</p>
+        <div class="section-divider"></div>
+      </div>
+
+      <div class="exchange-content fade-in">
+        <div class="exchange-text">
+          <h3 class="text-gradient">A Growing Ecosystem of <span class="text-gradient-accent">EVE-OS</span> Modules</h3>
+          <p>
+            A growing ecosystem of EVE-OS modules — from connectors and workflow tools to domain-specific
+            compliance suites, enterprise integrations, and specialized components. Browse, evaluate, and deploy modules
+            built for regulated and high-performance environments.
+          </p>
+          <a href="https://hermetic-labs.github.io/hermetic-labs-exchange/" target="_blank" class="btn btn-primary">
+            Visit the Exchange →
+          </a>
+        </div>
+        <div class="exchange-visual">
+          <a href="https://hermetic-labs.github.io/hermetic-labs-exchange/" target="_blank" class="exchange-mockup-link">
+            <div class="exchange-mockup" style="aspect-ratio:16/9; background: linear-gradient(135deg, #0a0a0a 0%, #0d1a14 50%, #0a0a0a 100%); border: 1px solid rgba(47,180,165,0.2); border-radius: var(--radius); display:flex; flex-direction:column; align-items:center; justify-content:center; gap: 16px; cursor:pointer; transition: border-color 0.35s, box-shadow 0.35s;">
+              <img src="images/Exchange logo.png" alt="Exchange" style="width:120px; height:120px; opacity:0.9;">
+              <span style="font-size:1.2rem; font-weight:600; letter-spacing:0.06em;" class="text-gradient">Hermetic Labs Exchange</span>
+              <span style="font-size:0.85rem; color: var(--text-muted);">Browse EVE-OS Modules →</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== IMPACT & INFRASTRUCTURE ========== -->
+  <section id="impact">
+    <div class="container">
+      <div class="fade-in" style="text-align:center;">
+        <p class="section-label text-gradient">Infrastructure for a World Under Pressure</p>
+        <div class="section-divider"></div>
+        <p class="section-title"><span class="text-gradient">Sovereign</span> & Government Ready</p>
+      </div>
+
+      <div class="impact-badges fade-in">
+        <div class="badge-card">
+          <img src="images/sam-gov.jpg" alt="SAM.gov">
+          <div class="badge-info">
+            <h4>SAM.gov Registered</h4>
+            <p>CAGE Code: 148C3</p>
+          </div>
+        </div>
+        <div class="badge-card">
+          <img src="images/exostar.jpg" alt="Exostar">
+          <div class="badge-info">
+            <h4>Exostar Capable</h4>
+            <p>Defense supply chain ready</p>
+          </div>
+        </div>
+        <div class="badge-card">
+          <img src="images/globe.jpg" alt="E-Residency">
+          <div class="badge-info">
+            <h4>E-Residency of Estonia</h4>
+            <p>April 2026</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="impact-mission fade-in">
+        <img src="images/impact-photo.jpg" alt="Developers Without Borders" class="impact-photo">
+        <div class="impact-text">
+          <p class="section-label text-gradient">Builders Work Overtime</p>
+          <p>
+            When systems fail, builders step in. Hermetic Labs develops resilient, sovereign, and compliance-native
+            AI systems for healthcare, emergency response, and real-world crisis environments.
+          </p>
+          <p>
+            We believe that when destruction accelerates, construction must move faster.
+          </p>
+          <p>
+            <strong>Developers Without Borders</strong> is our commitment to deploy technology where crisis,
+            conflict, and systemic fragility demand resilience.
+          </p>
+          <a href="images/pledge-certificate.png" target="_blank" class="btn btn-outline" style="margin-top: 24px; display: inline-flex; align-items: center; gap: 8px;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            Take the Pledge & Download Certificate
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== RESEARCH ========== -->
+  <section id="research">
+    <div class="container">
+      <div class="fade-in" style="text-align:center;">
+        <p class="section-label text-gradient">Research & White Papers</p>
+        <div class="section-divider"></div>
+        <p class="section-desc">These papers inform the design and operation of EVE-OS</p>
+      </div>
+
+      <div class="research-grid fade-in">
+        <div class="research-card">
+          <span class="research-tag tag-arch">ARCHITECTURE</span>
+          <h3>The Monoculture Problem</h3>
+          <p>Why centralized AI infrastructure cannot scale</p>
+          <a href="/The-Monoculture-Problem-White-Paper.pdf" target="_blank" class="btn btn-outline">Download PDF ↓</a>
+        </div>
+        <div class="research-card">
+          <span class="research-tag tag-workforce">WORKFORCE</span>
+          <h3>Employment Resilience</h3>
+          <p>How distributed inference supports long-term workforce stability</p>
+          <a href="/Employment-Resilience-White-Paper-Final.pdf" target="_blank" class="btn btn-outline">Download PDF ↓</a>
+        </div>
+        <div class="research-card">
+          <span class="research-tag tag-compliance">COMPLIANCE</span>
+          <h3>Compliance by Design</h3>
+          <p>Architectural constraints for HIPAA, NHS DTAC, and FDA Readiness</p>
+          <a href="/Compliance-by-Design-White-Paper-Final.pdf" target="_blank" class="btn btn-outline">Download PDF ↓</a>
+        </div>
+        <div class="research-card">
+          <span class="research-tag tag-platform">PLATFORM</span>
+          <h3>The Fiduciary Case for Local-First AI</h3>
+          <p>Data sovereignty, accountability, and duty in high-stakes systems</p>
+          <a href="/The-Fiduciary-Case-for-Local-First-AI.pdf" target="_blank" class="btn btn-outline">Download PDF ↓</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CONTACT ========== -->
+  <section id="contact">
+    <div class="container">
+      <div class="contact-inner fade-in">
+        <p class="section-label"><span class="text-gradient">Contact</span> Hermetic Labs</p>
+        <div class="section-divider"></div>
+        <img src="images/icon.png" alt="Hermetic Labs" class="contact-logo">
+        <p class="section-desc">
+          Hermetic Labs works with partners, public-sector organizations, and early adopters building high-trust AI systems.
+          For collaboration, procurement discussions, or early access to EVE-OS, please reach out below.
+        </p>
+        <p class="contact-email">
+          <a href="mailto:FrontDesk@7hermeticlabs.com">FrontDesk@7HermeticLabs.com</a>
+        </p>
+        <div class="contact-cta">
+          <a href="mailto:FrontDesk@7hermeticlabs.com" class="btn btn-primary">Get in Touch →</a>
+        </div>
+
+        <div class="contact-access">
+          <h3>Early Access / Wishlist</h3>
+          <p>
+            EVE-OS is currently available through limited evaluation and partner pathways.
+            Organizations interested in early access or future releases may request inclusion.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="https://hermeticlabs.app" target="_blank">HALT — Field Triage</a>
+      <a href="https://hermetic-labs.github.io/hermetic-labs-exchange/" target="_blank">Exchange</a>
+      <a href="https://github.com/Hermetic-Labs" target="_blank">GitHub</a>
+      <a href="mailto:FrontDesk@7hermeticlabs.com">Contact</a>
+    </div>
+    <p>© 2026 Hermetic Labs. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
