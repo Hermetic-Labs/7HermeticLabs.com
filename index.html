@@ -29,9 +29,9 @@
     <a href="#home" class="nav-brand">
       <img src="images/hermetic-wordmark.png" alt="Hermetic Labs" style="height: 28px; width: auto; opacity: 0.9;">
     </a>
-    <div class="nav-links" id="navLinks">
+    <div class="nav-links" id="navLinks" style="align-items: center;">
       <a href="#home" class="active">Home</a>
-      <a href="#about">EVE-OS</a>
+      <a href="#about" class="nav-logo-link" style="display: inline-flex; align-items: center; justify-content: center;"><img src="images/Eve os.png" alt="EVE-OS" style="height: 42px; width: auto; border-radius: 6px; opacity: 0.85; transition: opacity var(--transition), transform var(--transition); position: relative; top: -4px;" onmouseover="this.style.opacity=1; this.style.transform='scale(1.05)';" onmouseout="this.style.opacity=0.85; this.style.transform='scale(1)';"></a>
       <a href="#in-the-field">In the Field</a>
       <a href="#exchange">Exchange</a>
       <a href="#impact">Impact</a>
@@ -235,14 +235,16 @@
   <!-- ========== EXCHANGE ========== -->
   <section id="exchange">
     <div class="container">
-      <div class="fade-in" style="text-align:center;">
+      <div class="fade-in" style="text-align:center; margin-bottom: 48px;">
         <p class="section-label text-gradient">Hermetic Labs Exchange</p>
         <div class="section-divider"></div>
+        <h3 class="text-gradient" style="font-family: var(--font-accent); font-size: clamp(1.6rem, 3.5vw, 2.2rem); font-weight: 700; max-width: 900px; margin: 0 auto; line-height: 1.3;">
+          A Growing Ecosystem of <img src="images/Eve os.png" alt="EVE-OS" style="height: 1.8em; width: auto; vertical-align: middle; margin: -4px 6px 0; border-radius: 6px; position: relative; top: -6px;"> Modules
+        </h3>
       </div>
 
       <div class="exchange-content fade-in">
         <div class="exchange-text">
-          <h3 class="text-gradient">A Growing Ecosystem of <span class="text-gradient-accent">EVE-OS</span> Modules</h3>
           <p>
             A growing ecosystem of EVE-OS modules — from connectors and workflow tools to domain-specific
             compliance suites, enterprise integrations, and specialized components. Browse, evaluate, and deploy modules
