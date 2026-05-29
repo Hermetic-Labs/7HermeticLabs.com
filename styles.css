@@ -667,7 +667,7 @@ section:nth-child(even) {
   border-radius: var(--radius);
   overflow: hidden;
   position: relative;
-  aspect-ratio: 3/4;
+  aspect-ratio: 1/1;
   background: var(--bg-card);
   border: 1px solid rgba(47,180,165,0.1);
   transition: var(--transition);
@@ -706,7 +706,7 @@ section:nth-child(even) {
 }
 .field-hero-img {
   width: 100%;
-  max-height: 360px;
+  aspect-ratio: 3/2;
   object-fit: cover;
   border-radius: var(--radius);
   border: 1px solid rgba(47,180,165,0.15);
