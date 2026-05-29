@@ -66,5 +66,28 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
 
   fadeEls.forEach(el => observer.observe(el));
+
+  // ---------- Video: Play/Pause on Viewport Intersect ----------
+  const haltVideo = document.getElementById('haltVideo');
+  if (haltVideo && 'IntersectionObserver' in window) {
+    const videoObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          haltVideo.currentTime = 0; // Restart video from the beginning
+          haltVideo.muted = false; // Try to play unmuted first
+          haltVideo.play().catch(err => {
+            console.log("Unmuted play blocked by browser policy, falling back to muted play:", err);
+            haltVideo.muted = true; // Fallback to muted
+            haltVideo.play().catch(err2 => {
+              console.log("Muted play also failed:", err2);
+            });
+          });
+        } else {
+          haltVideo.pause();
+        }
+      });
+    }, { threshold: 0.15 });
+    videoObserver.observe(haltVideo);
+  }
 });
 
