@@ -45,8 +45,12 @@
 
   <!-- ========== HERO ========== -->
   <section class="hero" id="home">
+    <div class="hero-canvas-container" id="hero-canvas-container"></div>
     <div class="hero-content fade-in">
-      <img src="images/hermetic-logo.png" alt="Hermetic Labs Logo" class="hero-logo" width="270" height="270">
+      <div class="hero-logo-container">
+        <div class="hero-logo-seal"></div>
+        <img src="images/hermetic-logo.png" alt="Hermetic Labs Logo" class="hero-logo">
+      </div>
       <h1 class="hero-title text-gradient">HERMETIC LABS</h1>
       <p class="hero-tagline">Building local-first systems<br>for high-stakes environments</p>
     </div>
@@ -401,6 +405,8 @@
     <p>© 2026 Hermetic Labs. All rights reserved.</p>
   </footer>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="hero-mesh.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

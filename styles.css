@@ -202,19 +202,62 @@ ul { list-style: none; }
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at 50% 40%, rgba(6,83,32,0.2) 0%, transparent 60%),
-              radial-gradient(ellipse at 30% 80%, rgba(47,180,165,0.08) 0%, transparent 50%);
+  background: radial-gradient(ellipse at 50% 45%, rgba(6,83,32,0.15) 0%, transparent 60%),
+              radial-gradient(ellipse at 30% 80%, rgba(47,180,165,0.06) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 2;
+}
+.hero-canvas-container {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
   pointer-events: none;
 }
-.hero-logo {
-  width: 270px;
-  height: 270px;
-  margin: 0 auto 32px;
+.hero-content {
+  position: relative;
+  z-index: 3;
+  pointer-events: none; /* Let pointer events pass through to canvas background for mouse tracking if needed, but reactivate for links */
+  transform: translateY(-35px); /* Raise the entire hero content a smidge */
+}
+.hero-content * {
+  pointer-events: auto; /* Reactivate pointer events for text and images */
+}
+.hero-logo-container {
+  position: relative;
+  width: 160px;
+  height: 160px;
+  margin: 0 auto 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   animation: float 6s ease-in-out infinite;
+}
+.hero-logo {
+  width: 120px;
+  height: 120px;
+  z-index: 2;
+  position: relative;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.hero-logo-container:hover .hero-logo {
+  transform: scale(1.05);
+}
+.hero-logo-seal {
+  position: absolute;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  border: 1px solid rgba(47, 180, 165, 0.25);
+  background: var(--bg);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+  z-index: 1;
+  pointer-events: none;
 }
 @keyframes float {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-12px); }
+  50% { transform: translateY(-4px); }
 }
 .hero-title {
   font-size: clamp(2.5rem, 5.5vw, 4rem);
@@ -250,6 +293,7 @@ ul { list-style: none; }
   height: 120px;
   background: linear-gradient(to bottom, transparent, var(--bg));
   pointer-events: none;
+  z-index: 3;
 }
 
 /* ---------- Section Shared ---------- */
