@@ -73,11 +73,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const videoObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          haltVideo.currentTime = 0; // Restart video from the beginning
-          haltVideo.muted = false; // Try to play unmuted first
+          haltVideo.currentTime = 0;
+          haltVideo.muted = false;
           haltVideo.play().catch(err => {
             console.log("Unmuted play blocked by browser policy, falling back to muted play:", err);
-            haltVideo.muted = true; // Fallback to muted
+            haltVideo.muted = true;
             haltVideo.play().catch(err2 => {
               console.log("Muted play also failed:", err2);
             });
@@ -88,6 +88,29 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }, { threshold: 0.15 });
     videoObserver.observe(haltVideo);
+  }
+
+  // ---------- Video: Exchange Explainer — Play/Pause on Viewport Intersect ----------
+  const exchangeVideo = document.getElementById('exchangeVideo');
+  if (exchangeVideo && 'IntersectionObserver' in window) {
+    const exchangeVideoObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          exchangeVideo.currentTime = 0;
+          exchangeVideo.muted = false;
+          exchangeVideo.play().catch(err => {
+            console.log("Exchange video: unmuted play blocked, falling back to muted:", err);
+            exchangeVideo.muted = true;
+            exchangeVideo.play().catch(err2 => {
+              console.log("Exchange video: muted play also failed:", err2);
+            });
+          });
+        } else {
+          exchangeVideo.pause();
+        }
+      });
+    }, { threshold: 0.15 });
+    exchangeVideoObserver.observe(exchangeVideo);
   }
 });
 

@@ -584,6 +584,7 @@ section:nth-child(even) {
 .tag-workforce { background: #661414; color: #fff; }
 .tag-compliance { background: #053827; color: #fff; }
 .tag-platform { background: #2c0a71; color: #fff; }
+.tag-position { background: #4a003a; color: #ff85d8; }
 .research-card h3 {
   font-size: 1.15rem;
   font-weight: 600;

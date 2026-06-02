@@ -10,7 +10,7 @@
   // Parameters
   const particleCount = 120;
   const maxDistance = 115;
-  const mouseRadius = 220;
+  const mouseRadius = 340;
   const particleSize = 5.5;
 
   let scene, camera, renderer;
@@ -215,8 +215,8 @@
     const limitZ = 200;
 
     // Smooth mouse coordinates interpolation
-    mouse.x += (mouse.targetX - mouse.x) * 0.08;
-    mouse.y += (mouse.targetY - mouse.y) * 0.08;
+    mouse.x += (mouse.targetX - mouse.x) * 0.16;
+    mouse.y += (mouse.targetY - mouse.y) * 0.16;
 
     // Calculate mouse 3D position at Z=0
     // Camera FOV is 60. Aspect is camera.aspect. Camera is at Z=400.
@@ -244,10 +244,10 @@
 
         if (dist < mouseRadius && dist > 5) {
           // Soft force field pushing nodes away from cursor
-          const force = (1.0 - dist / mouseRadius) * 0.35;
-          velocities[i].x += (dx / dist) * force * 0.18;
-          velocities[i].y += (dy / dist) * force * 0.18;
-          velocities[i].z += (dz / dist) * force * 0.18;
+          const force = (1.0 - dist / mouseRadius) * 1.1;
+          velocities[i].x += (dx / dist) * force * 0.52;
+          velocities[i].y += (dy / dist) * force * 0.52;
+          velocities[i].z += (dz / dist) * force * 0.52;
         }
       }
 
@@ -256,9 +256,10 @@
       velocities[i].y += (Math.random() - 0.5) * 0.015;
       velocities[i].z += (Math.random() - 0.5) * 0.015;
 
-      velocities[i].x *= 0.94;
-      velocities[i].y *= 0.94;
-      velocities[i].z *= 0.94;
+      const damping = mouse.active ? 0.94 : 0.76;
+      velocities[i].x *= damping;
+      velocities[i].y *= damping;
+      velocities[i].z *= damping;
 
       // Limit speed
       const speed = Math.sqrt(
@@ -266,7 +267,7 @@
         velocities[i].y * velocities[i].y +
         velocities[i].z * velocities[i].z
       );
-      const maxSpeed = 1.6;
+      const maxSpeed = 4.2;
       if (speed > maxSpeed) {
         velocities[i].x = (velocities[i].x / speed) * maxSpeed;
         velocities[i].y = (velocities[i].y / speed) * maxSpeed;
