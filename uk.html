@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hermetic Labs UK — AI Advisory Services for the NHS</title>
+  <meta name="description" content="Hermetic Labs Ltd is the UK subsidiary of Hermetic Labs LLC, providing AI advisory, governance, and implementation services for NHS and UK public sector organisations.">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Hermetic Labs UK — AI Advisory Services">
+  <meta property="og:description" content="AI advisory, governance, and implementation support for NHS and UK public sector organisations.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://7hermeticlabs.com/uk.html">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="images/icon.png">
+  <link rel="icon" href="images/icon.png" sizes="192x192">
+  <link rel="apple-touch-icon" href="images/icon.png" sizes="180x180">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css?v=1.0.2">
+  <style>
+    /* UK Page Specific */
+    .uk-hero {
+      min-height: 60vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: var(--section-pad);
+      padding-top: calc(var(--nav-height) + 80px);
+      position: relative;
+    }
+    .uk-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 45%, rgba(6,83,32,0.15) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .uk-hero-content {
+      position: relative;
+      z-index: 2;
+    }
+    .uk-flag {
+      font-size: 3rem;
+      margin-bottom: 24px;
+      display: block;
+    }
+    .uk-subtitle {
+      font-size: clamp(1rem, 1.8vw, 1.25rem);
+      color: var(--text-muted);
+      max-width: 700px;
+      margin: 0 auto 32px;
+      line-height: 1.7;
+    }
+    .uk-reg {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 24px;
+      background: var(--bg-card);
+      border: 1px solid rgba(47,180,165,0.15);
+      border-radius: var(--radius-sm);
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      letter-spacing: 0.04em;
+    }
+    .uk-reg strong {
+      color: var(--text-primary);
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .service-card {
+      background: var(--bg-card);
+      border: 1px solid rgba(47,180,165,0.1);
+      border-radius: var(--radius);
+      padding: 32px 24px;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--grad-brand);
+      opacity: 0;
+      transition: opacity var(--transition);
+    }
+    .service-card:hover {
+      border-color: rgba(47,180,165,0.3);
+      transform: translateY(-4px);
+    }
+    .service-card:hover::before { opacity: 1; }
+    .service-card .service-icon {
+      font-size: 1.8rem;
+      margin-bottom: 16px;
+      display: block;
+    }
+    .service-card h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    .service-card p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    .entity-details {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .entity-card {
+      background: var(--bg-card);
+      border: 1px solid rgba(47,180,165,0.1);
+      border-radius: var(--radius-sm);
+      padding: 28px 24px;
+    }
+    .entity-card h4 {
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 12px;
+    }
+    .entity-card p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+    .entity-card a {
+      color: var(--teal);
+      transition: color var(--transition);
+    }
+    .entity-card a:hover {
+      color: var(--text-primary);
+    }
+    .crp-banner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+      padding: 32px;
+      background: var(--bg-card);
+      border: 1px solid rgba(47,180,165,0.15);
+      border-radius: var(--radius);
+      margin-top: 48px;
+      flex-wrap: wrap;
+    }
+    .crp-banner-text h3 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    .crp-banner-text p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+    .innovation-badge {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 20px 28px;
+      background: var(--bg-card);
+      border: 1px solid rgba(47,180,165,0.15);
+      border-radius: var(--radius-sm);
+      margin-top: 32px;
+    }
+    .innovation-badge .badge-icon {
+      font-size: 2rem;
+      flex-shrink: 0;
+    }
+    .innovation-badge h4 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .innovation-badge p {
+      font-size: 0.85rem;
+      color: var(--text-dim);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========== NAVIGATION ========== -->
+  <nav class="nav" id="nav">
+    <a href="index.html" class="nav-brand">
+      <img src="images/hermetic-wordmark.png" alt="Hermetic Labs" style="height: 28px; width: auto; opacity: 0.9;">
+    </a>
+    <div class="nav-links" id="navLinks" style="align-items: center;">
+      <a href="index.html">Home</a>
+      <a href="index.html#about" class="nav-logo-link" style="display: inline-flex; align-items: center; justify-content: center;"><img src="images/Eve os.png" alt="EVE-OS" style="height: 42px; width: auto; border-radius: 6px; opacity: 0.85; transition: opacity var(--transition), transform var(--transition); position: relative; top: -1px;" onmouseover="this.style.opacity=1; this.style.transform='scale(1.05)';" onmouseout="this.style.opacity=0.85; this.style.transform='scale(1)';"></a>
+      <a href="index.html#in-the-field">In the Field</a>
+      <a href="index.html#exchange">Exchange</a>
+      <a href="uk.html" class="active">UK</a>
+      <a href="eu.html">EU</a>
+      <a href="index.html#contact">Contact</a>
+    </div>
+    <div class="hamburger" id="hamburger" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- ========== UK HERO ========== -->
+  <section class="uk-hero">
+    <div class="uk-hero-content fade-in">
+      <img src="images/uk_flag.png" alt="United Kingdom" style="width: 64px; height: auto; margin: 0 auto 24px; display: block; border-radius: 6px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
+      <h1 class="hero-title text-gradient">HERMETIC LABS UK</h1>
+      <p class="uk-subtitle">
+        AI advisory, governance, and implementation support for NHS and UK public sector organisations.
+        Local-first architecture. Privacy by design. Human oversight built in.
+      </p>
+      <div class="uk-reg">
+        <strong>Hermetic Labs Ltd</strong> · Companies House 17255208 · Registered in England and Wales
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== ADVISORY SERVICES ========== -->
+  <section id="services">
+    <div class="container">
+      <div class="fade-in" style="text-align:center;">
+        <p class="section-label text-gradient">UK Advisory Services</p>
+        <div class="section-divider"></div>
+        <p class="section-desc">
+          Hermetic Labs Ltd provides specialist advisory services to support NHS and public sector organisations
+          in the safe, effective adoption of artificial intelligence.
+        </p>
+      </div>
+
+      <div class="services-grid fade-in">
+        <div class="service-card">
+          <span class="service-icon">🔍</span>
+          <h3>AI Readiness Assessment</h3>
+          <p>Evaluate organisational readiness for AI adoption — infrastructure, data maturity, governance frameworks, and workforce capability.</p>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">⚖️</span>
+          <h3>AI Governance Advisory</h3>
+          <p>Design and implement governance structures for responsible AI deployment, including ethics boards, approval workflows, and oversight mechanisms.</p>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">🛡️</span>
+          <h3>Model Assurance &amp; Validation</h3>
+          <p>Independent review and validation of AI/ML models for safety, bias, performance, and regulatory compliance in clinical and operational contexts.</p>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">📋</span>
+          <h3>DPIA &amp; DTAC Support</h3>
+          <p>Prepare and review Data Protection Impact Assessments and Digital Technology Assessment Criteria submissions for AI-enabled health technologies.</p>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">🔌</span>
+          <h3>Integration Architecture</h3>
+          <p>Design interoperable, standards-compliant integration architectures for AI systems within existing NHS IT infrastructure and clinical workflows.</p>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">🚀</span>
+          <h3>Implementation Planning</h3>
+          <p>End-to-end implementation planning including service design, change management, training, and post-deployment monitoring strategies.</p>
+        </div>
+      </div>
+
+      <div class="innovation-badge fade-in">
+        <span class="badge-icon">🏥</span>
+        <div>
+          <h4>NHS Innovation Programme Participant</h4>
+          <p>Actively supported through the Yorkshire &amp; Humber NHS Innovation Programme for AI adoption in healthcare.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== COMPANY DETAILS ========== -->
+  <section id="company">
+    <div class="container">
+      <div class="fade-in" style="text-align:center;">
+        <p class="section-label text-gradient">Company Information</p>
+        <div class="section-divider"></div>
+      </div>
+
+      <div class="entity-details fade-in">
+        <div class="entity-card">
+          <h4>UK Entity</h4>
+          <p>
+            <strong>Hermetic Labs Ltd</strong><br>
+            Companies House: 17255208<br>
+            Incorporated: 2 June 2026<br>
+            71-75 Shelton Street<br>
+            Covent Garden, London<br>
+            WC2H 9JQ
+          </p>
+        </div>
+        <div class="entity-card">
+          <h4>Parent Company</h4>
+          <p>
+            <strong>Hermetic Labs LLC</strong><br>
+            Georgia, United States<br>
+            Domestic Limited Liability Company<br>
+            Status: Active/Compliance<br>
+            <a href="https://7hermeticlabs.com" target="_blank">7hermeticlabs.com</a>
+          </p>
+        </div>
+        <div class="entity-card">
+          <h4>Contact</h4>
+          <p>
+            <a href="mailto:FrontDesk@7hermeticlabs.com">FrontDesk@7HermeticLabs.com</a><br><br>
+            For procurement enquiries, collaboration, or early access to advisory services.
+          </p>
+        </div>
+      </div>
+
+      <!-- Carbon Reduction Plan -->
+      <div class="crp-banner fade-in">
+        <div class="crp-banner-text">
+          <h3>🌱 Carbon Reduction Plan</h3>
+          <p>Published in accordance with PPN 06/21. Hermetic Labs Ltd is committed to achieving Net Zero by 2050.</p>
+        </div>
+        <a href="uk/carbon-reduction-plan.pdf" target="_blank" class="btn btn-outline">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+          Download PDF
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="https://7hermeticlabs.health" target="_blank">HALT — Field Triage</a>
+      <a href="https://7hermeticloops.com" target="_blank">Exchange</a>
+      <a href="https://7hermeticlaws.com" target="_blank">The Laws</a>
+      <a href="https://github.com/Hermetic-Labs" target="_blank">GitHub</a>
+      <a href="mailto:FrontDesk@7hermeticlabs.com">Contact</a>
+    </div>
+    <div class="footer-entities" style="display:flex; justify-content:center; align-items:center; gap:24px; margin-bottom: 14px; flex-wrap: wrap;">
+      <span style="font-size:0.75rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color: var(--text-dim);">Hermetic Labs LLC</span>
+      <span style="color: var(--text-dim); opacity:0.3;">·</span>
+      <span style="font-size:0.75rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color: var(--text-dim);">Hermetic Labs Ltd</span>
+      <span style="color: var(--text-dim); opacity:0.3;">·</span>
+      <span style="font-size:0.75rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color: var(--text-dim);">Hermetic Labs OÜ</span>
+    </div>
+    <p>© 2026 Hermetic Labs. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js?v=1.0.2"></script>
+</body>
+</html>

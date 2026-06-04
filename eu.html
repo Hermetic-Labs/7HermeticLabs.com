@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hermetic Labs EU — AI Advisory Services for the European Union</title>
+  <meta name="description" content="Hermetic Labs OÜ is the EU subsidiary of Hermetic Labs LLC, providing AI advisory, governance, and EU AI Act compliance services across Europe.">
+
+  <meta property="og:title" content="Hermetic Labs EU — AI Advisory Services">
+  <meta property="og:description" content="AI advisory, governance, and EU AI Act compliance support for European organisations.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://7hermeticlabs.com/eu.html">
+
+  <link rel="shortcut icon" href="images/icon.png">
+  <link rel="icon" href="images/icon.png" sizes="192x192">
+  <link rel="apple-touch-icon" href="images/icon.png" sizes="180x180">
+
+  <link rel="stylesheet" href="styles.css?v=1.0.2">
+  <style>
+    /* EU Page Specific */
+    .eu-hero {
+      min-height: 60vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: var(--section-pad);
+      padding-top: calc(var(--nav-height) + 80px);
+      position: relative;
+    }
+    .eu-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 45%, rgba(0,51,153,0.12) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .eu-hero-content {
+      position: relative;
+      z-index: 2;
+    }
+    .eu-subtitle {
+      font-size: clamp(1rem, 1.8vw, 1.25rem);
+      color: var(--text-muted);
+      max-width: 700px;
+      margin: 0 auto 32px;
+      line-height: 1.7;
+    }
+    .eu-reg {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 24px;
+      background: var(--bg-card);
+      border: 1px solid rgba(47,180,165,0.15);
+      border-radius: var(--radius-sm);
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      letter-spacing: 0.04em;
+    }
+    .eu-reg strong {
+      color: var(--text-primary);
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .service-card {
+      background: var(--bg-card);
+      border: 1px solid rgba(47,180,165,0.1);
+      border-radius: var(--radius);
+      padding: 32px 24px;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(135deg, #003399, #ffcc00);
+      opacity: 0;
+      transition: opacity var(--transition);
+    }
+    .service-card:hover {
+      border-color: rgba(47,180,165,0.3);
+      transform: translateY(-4px);
+    }
+    .service-card:hover::before { opacity: 1; }
+    .service-card .service-icon {
+      font-size: 1.8rem;
+      margin-bottom: 16px;
+      display: block;
+    }
+    .service-card h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    .service-card p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    .entity-details {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .entity-card {
+      background: var(--bg-card);
+      border: 1px solid rgba(47,180,165,0.1);
+      border-radius: var(--radius-sm);
+      padding: 28px 24px;
+    }
+    .entity-card h4 {
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 12px;
+    }
+    .entity-card p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+    .entity-card a {
+      color: var(--teal);
+      transition: color var(--transition);
+    }
+    .entity-card a:hover {
+      color: var(--text-primary);
+    }
+    .ai-act-banner {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      padding: 28px 32px;
+      background: var(--bg-card);
+      border: 1px solid rgba(255,204,0,0.2);
+      border-radius: var(--radius);
+      margin-top: 48px;
+    }
+    .ai-act-banner .banner-icon {
+      font-size: 2.5rem;
+      flex-shrink: 0;
+    }
+    .ai-act-banner h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+    .ai-act-banner p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========== NAVIGATION ========== -->
+  <nav class="nav" id="nav">
+    <a href="index.html" class="nav-brand">
+      <img src="images/hermetic-wordmark.png" alt="Hermetic Labs" style="height: 28px; width: auto; opacity: 0.9;">
+    </a>
+    <div class="nav-links" id="navLinks" style="align-items: center;">
+      <a href="index.html">Home</a>
+      <a href="index.html#about" class="nav-logo-link" style="display: inline-flex; align-items: center; justify-content: center;"><img src="images/Eve os.png" alt="EVE-OS" style="height: 42px; width: auto; border-radius: 6px; opacity: 0.85; transition: opacity var(--transition), transform var(--transition); position: relative; top: -1px;" onmouseover="this.style.opacity=1; this.style.transform='scale(1.05)';" onmouseout="this.style.opacity=0.85; this.style.transform='scale(1)';"></a>
+      <a href="index.html#in-the-field">In the Field</a>
+      <a href="index.html#exchange">Exchange</a>
+      <a href="uk.html">UK</a>
+      <a href="eu.html" class="active">EU</a>
+      <a href="index.html#contact">Contact</a>
+    </div>
+    <div class="hamburger" id="hamburger" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- ========== EU HERO ========== -->
+  <section class="eu-hero">
+    <div class="eu-hero-content fade-in">
+      <img src="images/eu_flag.png" alt="European Union" style="width: 64px; height: auto; margin: 0 auto 24px; display: block; border-radius: 6px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
+      <h1 class="hero-title text-gradient">HERMETIC LABS EU</h1>
+      <p class="eu-subtitle">
+        AI advisory, governance, and EU AI Act compliance support for European organisations.
+        Privacy-first architecture. Sovereign data. Human oversight by design.
+      </p>
+      <div class="eu-reg">
+
+        <strong>Hermetic Labs OÜ</strong> · Registry code: 17521393 · Registered in Estonia
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== ADVISORY SERVICES ========== -->
+  <section id="services">
+    <div class="container">
+      <div class="fade-in" style="text-align:center;">
+        <p class="section-label" style="background: linear-gradient(135deg, #003399, #ffcc00); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">EU Advisory Services</p>
+        <div class="section-divider"></div>
+        <p class="section-desc">
+          Hermetic Labs OÜ provides specialist advisory services to support European organisations
+          in achieving compliance with the EU AI Act and the responsible deployment of artificial intelligence.
+        </p>
+      </div>
+
+      <div class="services-grid fade-in">
+        <div class="service-card">
+          <span class="service-icon">⚖️</span>
+          <h3>EU AI Act Compliance</h3>
+          <p>Navigate the EU AI Act classification system — identify risk categories, implement required conformity assessments, and establish compliant AI governance frameworks.</p>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">🔍</span>
+          <h3>AI System Classification</h3>
+          <p>Determine whether your AI systems fall under prohibited, high-risk, limited-risk, or minimal-risk categories and what obligations apply to each.</p>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">🛡️</span>
+          <h3>Conformity Assessment</h3>
+          <p>Prepare and execute conformity assessments for high-risk AI systems, including technical documentation, risk management, and human oversight requirements.</p>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">📋</span>
+          <h3>GDPR &amp; AI Integration</h3>
+          <p>Align AI deployments with GDPR requirements — data protection impact assessments, automated decision-making safeguards, and lawful basis analysis for AI training data.</p>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">🏗️</span>
+          <h3>Technical Documentation</h3>
+          <p>Produce the technical documentation required under Article 11 — training data governance, model validation, bias testing, and post-market monitoring plans.</p>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">🚀</span>
+          <h3>AI Governance Architecture</h3>
+          <p>Design organisational governance structures for responsible AI — ethics boards, risk registers, incident response, and transparent reporting mechanisms.</p>
+        </div>
+      </div>
+
+      <!-- EU AI Act Banner -->
+      <div class="ai-act-banner fade-in">
+        <span class="banner-icon">🇪🇺</span>
+        <div>
+          <h3>EU AI Act Ready</h3>
+          <p>The EU AI Act entered into force August 2024, with obligations phasing in through 2027. Hermetic Labs OÜ helps organisations prepare now — classifying systems, building governance, and establishing compliance infrastructure before enforcement deadlines.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== COMPANY DETAILS ========== -->
+  <section id="company">
+    <div class="container">
+      <div class="fade-in" style="text-align:center;">
+        <p class="section-label" style="background: linear-gradient(135deg, #003399, #ffcc00); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Company Information</p>
+        <div class="section-divider"></div>
+      </div>
+
+      <div class="entity-details fade-in">
+        <div class="entity-card">
+          <h4>EU Entity</h4>
+          <p>
+            <strong>Hermetic Labs OÜ</strong><br>
+            <!-- TODO: Replace [REGISTRIKOOD] with actual registry code -->
+            Registry code: [REGISTRIKOOD]<br>
+            Incorporated: 2 June 2026<br>
+            Ruling: Ä 50313092<br>
+            Tartu County Court Registry<br>
+            Estonia
+          </p>
+        </div>
+        <div class="entity-card">
+          <h4>Parent Company</h4>
+          <p>
+            <strong>Hermetic Labs LLC</strong><br>
+            Georgia, United States<br>
+            Domestic Limited Liability Company<br>
+            Status: Active/Compliance<br>
+            <a href="https://7hermeticlabs.com" target="_blank">7hermeticlabs.com</a>
+          </p>
+        </div>
+        <div class="entity-card">
+          <h4>Contact</h4>
+          <p>
+            <a href="mailto:FrontDesk@7hermeticlabs.com">FrontDesk@7HermeticLabs.com</a><br><br>
+            For EU AI Act advisory, compliance consultations, and partnership enquiries.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="uk.html">UK</a>
+      <a href="https://7hermeticlabs.health" target="_blank">HALT — Field Triage</a>
+      <a href="https://7hermeticloops.com" target="_blank">Exchange</a>
+      <a href="https://7hermeticlaws.com" target="_blank">The Laws</a>
+      <a href="https://github.com/Hermetic-Labs" target="_blank">GitHub</a>
+      <a href="mailto:FrontDesk@7hermeticlabs.com">Contact</a>
+    </div>
+    <div class="footer-entities" style="display:flex; justify-content:center; align-items:center; gap:24px; margin-bottom: 14px; flex-wrap: wrap;">
+      <span style="font-size:0.75rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color: var(--text-dim);">Hermetic Labs LLC</span>
+      <span style="color: var(--text-dim); opacity:0.3;">·</span>
+      <span style="font-size:0.75rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color: var(--text-dim);">Hermetic Labs Ltd</span>
+      <span style="color: var(--text-dim); opacity:0.3;">·</span>
+      <span style="font-size:0.75rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color: var(--text-dim);">Hermetic Labs OÜ</span>
+    </div>
+    <p>© 2026 Hermetic Labs. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js?v=1.0.2"></script>
+</body>
+</html>

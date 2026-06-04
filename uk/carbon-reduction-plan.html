@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carbon Reduction Plan — Hermetic Labs Ltd</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: #1a1a1a;
+      line-height: 1.7;
+      background: #ffffff;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 60px 48px;
+    }
+
+    @media print {
+      body { padding: 20px 40px; }
+      .no-print { display: none; }
+    }
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #065320;
+      margin-bottom: 8px;
+      letter-spacing: -0.02em;
+    }
+
+    .doc-meta {
+      font-size: 0.85rem;
+      color: #666;
+      margin-bottom: 40px;
+      padding-bottom: 20px;
+      border-bottom: 2px solid #065320;
+    }
+
+    .doc-meta span {
+      display: inline-block;
+      margin-right: 24px;
+    }
+
+    h2 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #065320;
+      margin-top: 36px;
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #333;
+      margin-top: 24px;
+      margin-bottom: 12px;
+    }
+
+    p {
+      margin-bottom: 12px;
+      font-size: 0.92rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0 24px;
+      font-size: 0.88rem;
+    }
+
+    th, td {
+      padding: 10px 14px;
+      text-align: left;
+      border: 1px solid #ddd;
+    }
+
+    th {
+      background: #f5f9f5;
+      font-weight: 600;
+      color: #065320;
+    }
+
+    td:last-child {
+      text-align: right;
+      font-weight: 500;
+    }
+
+    .total-row td {
+      font-weight: 700;
+      background: #f5f9f5;
+      border-top: 2px solid #065320;
+    }
+
+    ul {
+      margin: 12px 0 20px 20px;
+      font-size: 0.92rem;
+    }
+
+    li {
+      margin-bottom: 8px;
+      padding-left: 4px;
+    }
+
+    .target-table td:first-child {
+      font-weight: 600;
+    }
+
+    .declaration {
+      margin-top: 36px;
+      padding: 28px;
+      background: #fafcfa;
+      border: 1px solid #d0e0d0;
+      border-radius: 8px;
+    }
+
+    .declaration p {
+      font-size: 0.85rem;
+      color: #444;
+    }
+
+    .signature-block {
+      margin-top: 32px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+
+    .sig-field {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .sig-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #888;
+      margin-bottom: 8px;
+    }
+
+    .sig-value {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: #1a1a1a;
+      padding-top: 4px;
+      border-top: 1px solid #ccc;
+      min-height: 40px;
+    }
+
+    .sig-image {
+      max-height: 60px;
+      width: auto;
+      margin-top: -4px;
+    }
+
+    .footer-note {
+      margin-top: 48px;
+      padding-top: 20px;
+      border-top: 1px solid #e0e0e0;
+      font-size: 0.8rem;
+      color: #888;
+      text-align: center;
+    }
+
+    .print-btn {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      padding: 12px 24px;
+      background: #065320;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      transition: 0.2s;
+    }
+
+    .print-btn:hover {
+      background: #087a2e;
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body>
+
+  <button class="print-btn no-print" onclick="window.print()">📄 Save as PDF</button>
+
+  <h1>Carbon Reduction Plan</h1>
+  <div class="doc-meta">
+    <span><strong>Supplier:</strong> Hermetic Labs Ltd</span>
+    <span><strong>Publication date:</strong> June 2026</span>
+    <span><strong>Companies House:</strong> 17255208</span>
+  </div>
+
+  <!-- SECTION 1 -->
+  <h2>1. Commitment to Achieving Net Zero</h2>
+  <p>Hermetic Labs Ltd is committed to achieving Net Zero emissions by <strong>2050</strong>.</p>
+
+  <!-- SECTION 2 -->
+  <h2>2. Baseline Emissions Footprint</h2>
+  <p><strong>Baseline year:</strong> 2025</p>
+  <p>
+    Hermetic Labs Ltd is a newly incorporated UK technology consultancy specialising in artificial intelligence
+    advisory services for healthcare organisations. The company operates on a fully remote, local-first model
+    with no physical office premises, company vehicles, or on-site manufacturing facilities. All AI inference
+    and data processing is performed on local consumer-grade hardware, eliminating the need for cloud-based
+    GPU compute infrastructure.
+  </p>
+  <p>
+    As a sole-director company with no employees, the operational carbon footprint is minimal. Emissions are
+    estimated using recognised conversion factors published by the UK Government (DEFRA/BEIS).
+  </p>
+
+  <h3>Baseline Emissions</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Emissions Source</th>
+        <th>Total (tCO2e)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Scope 1</strong> — Direct emissions (company vehicles, natural gas, refrigerants)</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <td><strong>Scope 2</strong> — Indirect emissions (purchased electricity)</td>
+        <td>0.2</td>
+      </tr>
+      <tr>
+        <td><strong>Scope 3</strong> — Upstream transportation and distribution</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <td><strong>Scope 3</strong> — Waste generated in operations</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <td><strong>Scope 3</strong> — Business travel</td>
+        <td>0.1</td>
+      </tr>
+      <tr>
+        <td><strong>Scope 3</strong> — Employee commuting</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <td><strong>Scope 3</strong> — Downstream transportation and distribution</td>
+        <td>0</td>
+      </tr>
+      <tr class="total-row">
+        <td>Total Emissions</td>
+        <td>0.3</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- SECTION 3 -->
+  <h2>3. Emissions Reduction Targets</h2>
+  <p>
+    Hermetic Labs Ltd commits to reducing its total carbon emissions in line with achieving Net Zero by 2050.
+    Given the company's already minimal carbon footprint, the primary strategy is to maintain near-zero
+    emissions as the business scales, rather than achieving large percentage reductions from an already
+    negligible baseline.
+  </p>
+
+  <h3>Projected Emissions Trajectory</h3>
+  <table class="target-table">
+    <thead>
+      <tr>
+        <th>Year</th>
+        <th>Target (tCO2e)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>2025 (Baseline)</td><td>0.3</td></tr>
+      <tr><td>2027</td><td>0.3</td></tr>
+      <tr><td>2030</td><td>0.2</td></tr>
+      <tr><td>2035</td><td>0.1</td></tr>
+      <tr class="total-row"><td>2050</td><td>0 (Net Zero)</td></tr>
+    </tbody>
+  </table>
+
+  <!-- SECTION 4 -->
+  <h2>4. Carbon Reduction Projects</h2>
+
+  <h3>Completed Measures</h3>
+  <ul>
+    <li><strong>Local-first AI architecture:</strong> All AI inference runs on consumer-grade local hardware rather than cloud-based GPU clusters, eliminating the significant energy consumption associated with data centre compute. This architectural choice is embedded in the company's core product design (EVE-OS).</li>
+    <li><strong>Fully remote operations:</strong> The company operates without a physical office. All business activities — including client advisory engagements, development, and administration — are conducted remotely, eliminating commuting emissions entirely.</li>
+    <li><strong>Digital-only delivery:</strong> All advisory deliverables, reports, assessments, and documentation are delivered digitally. No physical materials are printed, shipped, or distributed.</li>
+    <li><strong>Energy-efficient hardware:</strong> Development and operations use consumer-grade laptops and devices optimised for energy efficiency, rather than high-power server infrastructure.</li>
+  </ul>
+
+  <h3>Planned Measures</h3>
+  <ul>
+    <li><strong>Renewable energy procurement:</strong> Transition home office electricity supply to a 100% renewable energy tariff by 2027.</li>
+    <li><strong>Green procurement policy:</strong> Implement a formal procurement policy prioritising refurbished and energy-efficient hardware for any future equipment purchases.</li>
+    <li><strong>Carbon offset programme:</strong> Evaluate accredited carbon offset programmes for any residual emissions that cannot be eliminated through operational measures.</li>
+    <li><strong>Supply chain engagement:</strong> As the company grows, engage with any future suppliers or subcontractors to encourage adoption of their own carbon reduction plans.</li>
+  </ul>
+
+  <!-- SECTION 5 -->
+  <h2>5. Declaration and Sign-Off</h2>
+  <div class="declaration">
+    <p>
+      This Carbon Reduction Plan has been completed in accordance with PPN 06/21 and the associated guidance,
+      and reporting standard for Carbon Reduction Plans.
+    </p>
+    <p>
+      Emissions have been reported and recorded in accordance with the published reporting standard for Carbon
+      Reduction Plans and the GHG Reporting Protocol corporate standard, using the 2025 UK Government GHG
+      Conversion Factors for Company Reporting.
+    </p>
+    <p>
+      Scope 1 and Scope 2 emissions have been reported in accordance with the SECR requirements, and the
+      required subset of Scope 3 emissions have been reported in accordance with the published reporting
+      standard for Carbon Reduction Plans. This Carbon Reduction Plan has been reviewed and signed off by the
+      board of directors (or equivalent management body).
+    </p>
+
+    <div class="signature-block">
+      <div class="sig-field">
+        <span class="sig-label">Signed</span>
+        <div class="sig-value">
+          <img src="signature.png" alt="Director Signature" class="sig-image">
+        </div>
+      </div>
+      <div class="sig-field">
+        <span class="sig-label">Date</span>
+        <div class="sig-value">4 June 2026</div>
+      </div>
+      <div class="sig-field">
+        <span class="sig-label">Name</span>
+        <div class="sig-value">Dwayne Tillman</div>
+      </div>
+      <div class="sig-field">
+        <span class="sig-label">Role</span>
+        <div class="sig-value">Director, Hermetic Labs Ltd</div>
+      </div>
+    </div>
+  </div>
+
+  <p class="footer-note">
+    This document is publicly available at: https://7hermeticlabs.com/uk/carbon-reduction-plan.pdf
+  </p>
+
+</body>
+</html>
