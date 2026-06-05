@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HermetiQ — Quantum Computing Exploration | Hermetic Labs</title>
+  <meta name="description" content="HermetiQ is Hermetic Labs' quantum computing research initiative, exploring how quantum simulation integrates with EVE-OS orchestration using Azure Quantum and Q#.">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="HermetiQ — Quantum Computing Exploration">
+  <meta property="og:description" content="Exploring quantum simulation and its integration with local-first AI orchestration.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://7hermeticlabs.com/hermetiq.html">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="images/icon.png">
+  <link rel="icon" href="images/icon.png" sizes="192x192">
+  <link rel="apple-touch-icon" href="images/icon.png" sizes="180x180">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css?v=1.0.2">
+  <style>
+    /* HermetiQ Page Specific */
+    .hq-hero {
+      min-height: 60vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: var(--section-pad);
+      padding-top: calc(var(--nav-height) + 80px);
+      position: relative;
+    }
+    .hq-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 45%, rgba(88,28,135,0.2) 0%, rgba(6,182,212,0.08) 40%, transparent 70%);
+      pointer-events: none;
+    }
+    .hq-hero-content {
+      position: relative;
+      z-index: 2;
+    }
+    .hq-icon {
+      font-size: 3.5rem;
+      margin-bottom: 24px;
+      display: block;
+    }
+    .hq-title {
+      font-family: var(--font-accent);
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      margin-bottom: 16px;
+    }
+    .hq-subtitle {
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      color: var(--text-secondary);
+      max-width: 640px;
+      margin: 0 auto 32px;
+      line-height: 1.6;
+    }
+    .hq-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(88,28,135,0.15);
+      border: 1px solid rgba(139,92,246,0.3);
+      border-radius: 24px;
+      padding: 8px 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      color: rgb(167,139,250);
+      margin-bottom: 32px;
+    }
+    .hq-badge .pulse {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgb(139,92,246);
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 0.4; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.3); }
+    }
+
+    .hq-section {
+      padding: var(--section-pad);
+    }
+    .hq-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-top: 40px;
+    }
+    .hq-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      padding: 32px;
+      transition: transform var(--transition), border-color var(--transition);
+    }
+    .hq-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(139,92,246,0.4);
+    }
+    .hq-card h3 {
+      font-family: var(--font-accent);
+      font-size: 1.15rem;
+      margin-bottom: 12px;
+    }
+    .hq-card p {
+      color: var(--text-secondary);
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+    .hq-card .card-icon {
+      font-size: 1.8rem;
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .hq-providers {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 32px;
+    }
+    .hq-provider {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      padding: 16px 24px;
+      text-align: center;
+      min-width: 160px;
+    }
+    .hq-provider h4 {
+      font-size: 0.95rem;
+      margin-bottom: 4px;
+    }
+    .hq-provider p {
+      font-size: 0.8rem;
+      color: var(--text-dim);
+    }
+    .hq-provider .status {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: rgb(34,197,94);
+      margin-top: 6px;
+    }
+
+    .hq-findings {
+      max-width: 800px;
+      margin: 48px auto 0;
+      text-align: center;
+    }
+    .hq-findings .coming-soon {
+      font-size: 1.1rem;
+      color: var(--text-dim);
+      font-style: italic;
+      padding: 48px 0;
+      border: 1px dashed rgba(139,92,246,0.2);
+      border-radius: var(--radius);
+      margin-top: 24px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========== NAVIGATION ========== -->
+  <nav class="nav" id="nav">
+    <a href="index.html" class="nav-brand">
+      <img src="images/hermetic-wordmark.png" alt="Hermetic Labs" style="height: 28px; width: auto; opacity: 0.9;">
+    </a>
+    <div class="nav-links" id="navLinks" style="align-items: center;">
+      <a href="index.html">Home</a>
+      <a href="index.html#about" class="nav-logo-link" style="display: inline-flex; align-items: center; justify-content: center;"><img src="images/Eve os.png" alt="EVE-OS" style="height: 42px; width: auto; border-radius: 6px; opacity: 0.85; transition: opacity var(--transition), transform var(--transition); position: relative; top: -1px;" onmouseover="this.style.opacity=1; this.style.transform='scale(1.05)';" onmouseout="this.style.opacity=0.85; this.style.transform='scale(1)';"></a>
+      <a href="index.html#in-the-field">In the Field</a>
+      <a href="index.html#exchange">Exchange</a>
+      <a href="index.html#impact">Impact</a>
+      <a href="uk.html">UK</a>
+      <a href="eu.html">EU</a>
+      <a href="index.html#research">Research</a>
+      <a href="hermetiq.html" class="active" style="font-family: var(--font-accent); letter-spacing: 0.05em;">HermetiQ</a>
+      <a href="index.html#contact">Contact</a>
+    </div>
+    <div class="hamburger" id="hamburger" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- ========== HERO ========== -->
+  <section class="hq-hero">
+    <div class="hq-hero-content fade-in">
+      <span class="hq-icon">⚛️</span>
+      <div class="hq-badge"><span class="pulse"></span> EXPLORATION PHASE</div>
+      <h1 class="hq-title text-gradient">HermetiQ</h1>
+      <p class="hq-subtitle">
+        Quantum computing exploration at the edge of classical orchestration.
+        Investigating how quantum simulation integrates with EVE-OS's local-first architecture
+        — from circuit design to real-world hybrid workflows.
+      </p>
+    </div>
+  </section>
+
+  <!-- ========== WHAT IS HERMETIQ ========== -->
+  <section class="hq-section">
+    <div class="container">
+      <div class="fade-in" style="text-align:center;">
+        <p class="section-label text-gradient">The Premise</p>
+        <div class="section-divider"></div>
+        <p class="section-desc" style="max-width: 720px; margin: 0 auto;">
+          Azure Quantum provides access to quantum simulators that can model up to <strong>50 qubits</strong>
+          — enough to explore quantum algorithms, test circuit designs, and experiment with hybrid
+          classical-quantum workflows. Beyond 50 qubits, you need hardware from vendors like
+          Quantinuum, PASQAL, or Rigetti.
+        </p>
+        <p class="section-desc" style="max-width: 720px; margin: 16px auto 0;">
+          <strong>HermetiQ</strong> lives in that pre-stage — the playing-with-it stage. We're documenting
+          how quantum simulation interacts with our orchestration layer, testing Q# scripts against
+          real simulator backends, and exploring what quantum advantage looks like for local-first systems.
+        </p>
+      </div>
+
+      <div class="hq-grid fade-in">
+        <div class="hq-card">
+          <span class="card-icon">🔬</span>
+          <h3 class="text-gradient">Simulator Sandbox</h3>
+          <p>
+            Working within Azure Quantum's simulator tier — testing circuits, entanglement patterns,
+            and quantum state management before committing to hardware QPU time.
+          </p>
+        </div>
+        <div class="hq-card">
+          <span class="card-icon">🧩</span>
+          <h3 class="text-gradient">Orchestration Integration</h3>
+          <p>
+            Exploring how quantum subroutines plug into EVE-OS's existing workflow engine — hybrid
+            classical-quantum pipelines with deterministic fallbacks.
+          </p>
+        </div>
+        <div class="hq-card">
+          <span class="card-icon">📐</span>
+          <h3 class="text-gradient">Q# Development</h3>
+          <p>
+            Writing and iterating on Q# scripts targeting multiple backends — from Quantinuum's
+            H2 emulator to PASQAL's neutral-atom simulator.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WORKSPACE STATUS ========== -->
+  <section class="hq-section">
+    <div class="container">
+      <div class="fade-in" style="text-align:center;">
+        <p class="section-label text-gradient">Workspace</p>
+        <div class="section-divider"></div>
+        <p class="section-desc">Active Azure Quantum environment with simulator access</p>
+      </div>
+
+      <div class="hq-providers fade-in">
+        <div class="hq-provider">
+          <h4>Quantinuum</h4>
+          <p>H2 Emulator</p>
+          <div class="status">✓ Available</div>
+        </div>
+        <div class="hq-provider">
+          <h4>PASQAL</h4>
+          <p>Neutral Atom Sim</p>
+          <div class="status">✓ Available</div>
+        </div>
+        <div class="hq-provider">
+          <h4>Rigetti</h4>
+          <p>QVM Simulator</p>
+          <div class="status">⚠ Degraded</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FINDINGS ========== -->
+  <section class="hq-section">
+    <div class="container">
+      <div class="hq-findings fade-in">
+        <p class="section-label text-gradient">Findings</p>
+        <div class="section-divider"></div>
+        <p class="section-desc">
+          Research notes, circuit experiments, and integration observations will be documented here
+          as the exploration progresses.
+        </p>
+        <div class="coming-soon">
+          Findings will be published as experiments are conducted.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="https://7hermeticlabs.health" target="_blank">HALT — Field Triage</a>
+      <a href="https://7hermeticloops.com" target="_blank">Exchange</a>
+      <a href="https://7hermeticlaws.com" target="_blank">The Laws</a>
+      <a href="https://github.com/Hermetic-Labs" target="_blank">GitHub</a>
+      <a href="mailto:FrontDesk@7hermeticlabs.com">Contact</a>
+    </div>
+    <div class="footer-entities" style="display:flex; justify-content:center; align-items:center; gap:24px; margin-bottom: 14px; flex-wrap: wrap;">
+      <span style="font-size:0.75rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color: var(--text-dim);">Hermetic Labs LLC</span>
+      <span style="color: var(--text-dim); opacity:0.3;">·</span>
+      <span style="font-size:0.75rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color: var(--text-dim);">Hermetic Labs Ltd</span>
+      <span style="color: var(--text-dim); opacity:0.3;">·</span>
+      <span style="font-size:0.75rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color: var(--text-dim);">Hermetic Labs OÜ</span>
+    </div>
+    <p>© 2026 Hermetic Labs. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js?v=1.0.2"></script>
+</body>
+</html>
