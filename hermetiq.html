@@ -38,10 +38,15 @@
       inset: 0;
       background: radial-gradient(ellipse at 50% 45%, rgba(88,28,135,0.2) 0%, rgba(6,182,212,0.08) 40%, transparent 70%);
       pointer-events: none;
+      z-index: 2;
     }
     .hq-hero-content {
       position: relative;
-      z-index: 2;
+      z-index: 3;
+      pointer-events: none;
+    }
+    .hq-hero-content * {
+      pointer-events: auto;
     }
     .hq-icon {
       font-size: 3.5rem;
@@ -159,14 +164,84 @@
       margin: 48px auto 0;
       text-align: center;
     }
-    .hq-findings .coming-soon {
-      font-size: 1.1rem;
-      color: var(--text-dim);
-      font-style: italic;
-      padding: 48px 0;
-      border: 1px dashed rgba(139,92,246,0.2);
+    .hq-console-card {
+      background: var(--card-bg);
+      border: 1px solid rgba(139,92,246,0.18);
       border-radius: var(--radius);
-      margin-top: 24px;
+      padding: 24px;
+      margin-top: 32px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+      text-align: left;
+    }
+    .hq-console-header {
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      color: var(--text-dim);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      padding-bottom: 12px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .console-pulse {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: rgb(34,197,94);
+      animation: consolePulse 1.8s ease-in-out infinite;
+    }
+    @keyframes consolePulse {
+      0%, 100% { opacity: 0.35; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.3); }
+    }
+    .hq-console-body {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .hq-qubit-monitor {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex: 1;
+      min-width: 180px;
+      padding: 16px;
+      background: rgba(255,255,255,0.01);
+      border: 1px solid rgba(255,255,255,0.03);
+      border-radius: var(--radius-sm);
+      transition: border-color var(--transition), background var(--transition);
+    }
+    .hq-qubit-monitor:hover {
+      border-color: rgba(47,180,165,0.15);
+      background: rgba(255,255,255,0.02);
+    }
+    .canvas-wrapper {
+      width: 110px;
+      height: 110px;
+      position: relative;
+      margin-bottom: 12px;
+    }
+    .canvas-wrapper canvas {
+      width: 100% !important;
+      height: 100% !important;
+      display: block;
+    }
+    .qubit-label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-sub);
+      margin-bottom: 4px;
+    }
+    .qubit-state {
+      font-family: monospace;
+      font-size: 0.75rem;
+      color: var(--teal);
+      text-align: center;
+      white-space: nowrap;
     }
   </style>
 </head>
@@ -196,6 +271,7 @@
 
   <!-- ========== HERO ========== -->
   <section class="hq-hero">
+    <div class="hero-canvas-container" id="hero-canvas-container"></div>
     <div class="hq-hero-content fade-in">
       <span class="hq-icon">⚛️</span>
       <div class="hq-badge"><span class="pulse"></span> EXPLORATION PHASE</div>
@@ -295,8 +371,27 @@
           Research notes, circuit experiments, and integration observations will be documented here
           as the exploration progresses.
         </p>
-        <div class="coming-soon">
-          Findings will be published as experiments are conducted.
+        <div class="hq-console-card">
+          <div class="hq-console-header">
+            <span class="console-pulse"></span> LIVE SIMULATOR CONSOLE — 3-QUBIT REGISTER
+          </div>
+          <div class="hq-console-body">
+            <div class="hq-qubit-monitor">
+              <div class="canvas-wrapper" id="mini-canvas-q0"></div>
+              <div class="qubit-label">q₀ (Phase Shift)</div>
+              <div class="qubit-state" id="state-q0">|ψ⟩ = 0.71|0⟩ + (0.71 + 0.00i)|1⟩</div>
+            </div>
+            <div class="hq-qubit-monitor">
+              <div class="canvas-wrapper" id="mini-canvas-q1"></div>
+              <div class="qubit-label">q₁ (Superposition)</div>
+              <div class="qubit-state" id="state-q1">|ψ⟩ = 1.00|0⟩ + 0.00|1⟩</div>
+            </div>
+            <div class="hq-qubit-monitor">
+              <div class="canvas-wrapper" id="mini-canvas-q2"></div>
+              <div class="qubit-label">q₂ (Entangled)</div>
+              <div class="qubit-state" id="state-q2">Bell State |Ψ⁺⟩</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -322,6 +417,8 @@
     <p>© 2026 Hermetic Labs. All rights reserved.</p>
   </footer>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="quantum-mesh.js"></script>
   <script src="script.js?v=1.0.2"></script>
 </body>
 </html>
