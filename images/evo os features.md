@@ -1,6 +1,6 @@
 # Hermetic Labs EVE OS - Features List
 
-This document outlines the comprehensive features of the Hermetic Labs EVE OS ecosystem, derived from a manual analysis of the codebase.
+This document is an internal implementation inventory derived from a manual codebase review. It does not establish production readiness, availability in every build, regulatory compliance, security certification, or clinical validation. Verify each item against the target build before using it externally.
 
 ## 1. EVE OS Backend (Python/FastAPI)
 
@@ -121,10 +121,10 @@ Specialized enterprise and vertical-specific modules available via the Marketpla
 - **Business Systems**: Plug-and-play connectors for Salesforce, SAP, Workday, and LexisNexis.
 - **Government & Legal**: Specialized connectors for SAM.gov, USA Spending, and Westlaw.
 
-### Compliance Suites
+### Compliance Readiness
 
-- **Regulatory Compliance**: Modules ensuring adherence to HIPAA, FedRAMP, ITAR, PCI-DSS, and SOX standards.
-- **Privacy Tools**: Automated PHI detection, data masking, and audit trails.
+- **Regulatory Readiness**: Modules that help map controls and evidence to HIPAA, FedRAMP, ITAR, PCI DSS, and SOX requirements. They do not by themselves establish certification or legal compliance.
+- **Privacy Tools**: Prototype workflows for PHI-detection review, data masking, and audit trails; deployment-specific validation remains required.
 
 ### Vertical Solutions
 
@@ -140,9 +140,9 @@ Specialized enterprise and vertical-specific modules available via the Marketpla
 
 ### Clinical Excellence
 
-- **Real-time Monitoring**: Continuous tracking of patient vitals with HealthKit integration.
-- **AI-Powered Safety**: Automated fall detection with instant nurse overflow alerts.
-- **Telehealth Ready**: Integrated video calling between patient rooms and nurse stations.
+- **Monitoring Prototypes**: Candidate workflows for recording patient vitals and integrating with HealthKit; clinical validation is not implied.
+- **Safety-Alert Prototypes**: Candidate fall-detection and escalation workflows requiring deployment-specific testing and human review.
+- **Telehealth Prototypes**: Video-call components intended for evaluation between configured endpoints.
 
 ### Operational Efficiency
 
@@ -152,7 +152,7 @@ Specialized enterprise and vertical-specific modules available via the Marketpla
 
 ### Security & Privacy
 
-- **HIPAA Compliant**: Built-in compliance with comprehensive audit logging.
+- **HIPAA-Aligned Controls**: Privacy, access, and audit features intended to support a covered organization's compliance work; deployment-specific assessment remains required.
 - **Local-First Architecture**: Resilient local storage with conflict-resolving server synchronization.
 
 ---

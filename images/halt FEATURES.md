@@ -1,8 +1,8 @@
-# HALT — Complete Feature Reference (v1.0.1-alpha)
+# HALT — Alpha Implementation Reference (v1.0.1-alpha)
 
-> **A portable AI-assisted emergency hospital operating system designed for chaotic or low-infrastructure environments.**
+> **INTERNAL ALPHA REFERENCE — NOT A CLINICAL, DEPLOYMENT, REGULATORY, OR PERFORMANCE CLAIM.**
 >
-> Combines triage, patient management, supply logistics, multilingual communication, volunteer coordination, and AI medical assistance into one deployable platform.
+> This inventory describes candidate source-code capabilities in a closed-beta coordination prototype. Availability, reliability, offline behavior, language quality, clinical safety, privacy, and field suitability require build-specific and deployment-specific validation. AI and protocol outputs are informational aids for qualified human review.
 
 ---
 
@@ -28,7 +28,7 @@ Handles entry of patients into the system.
 Each patient has a full detail panel containing:
 
 - Patient photo (file attachment)
-- Treatment plan (MARCH protocol, drugs, Rx orders, escalation)
+- Draft protocol-reference plan fields (MARCH, medication references, recovery, and escalation) for qualified human review
 - Medication list with dosage, route, and regimen
 - Vitals history (growing event timeline)
 - Notes
@@ -38,7 +38,7 @@ Each patient has a full detail panel containing:
 
 > 📂 `api/routes/patients.py` → `GET /api/patients/{id}`, model: `PatientRecord`
 
-Central location for all patient data, updated continuously during care.
+Candidate interface for consolidating recorded patient data during controlled evaluation.
 
 ---
 
@@ -46,23 +46,23 @@ Central location for all patient data, updated continuously during care.
 
 ### Vitals Tracking
 
-- Volunteers or staff record vitals
+- Authorised staff record vitals; trained volunteers may assist only under qualified supervision and local policy
 - Vitals automatically added to growing patient chart via event log
 - Visual history of patient condition over time
 
 ### Medication Tracking
 
 - Medication administration recorded as events
-- System automatically schedules next medication task
+- System can draft the next medication reminder for confirmation by authorised personnel
 
 ### Recurring Care Tasks
 
-When care actions occur, the system generates the next required task.
+When recorded care actions occur, the system can propose the next task. Qualified personnel must review and confirm any clinical or medication-related action.
 
 | Trigger | Result |
 |---|---|
-| Vitals taken | Schedule next vitals check |
-| Medication administered | Schedule next dose |
+| Vitals taken | Propose next vitals check |
+| Medication administered | Propose next-dose reminder for confirmation |
 
 Tasks include countdown timers, due times, and task ownership.
 
@@ -70,18 +70,18 @@ Tasks include countdown timers, due times, and task ownership.
 
 ---
 
-## 4. Volunteer Task System
+## 4. Task Coordination System
 
-Tasks can be claimed by available staff or volunteers.
+Non-clinical tasks can be claimed by authorised staff or volunteers. Clinical tasks require assignment and oversight consistent with local policy and professional scope.
 
 - Check vitals
-- Administer medication
+- Record an assigned medication administration under qualified clinical direction
 - Reassess patient
 - Update records
 
 > 📂 `api/routes/tasks.py`
 
-**Purpose** — Coordinate care in chaotic environments, prevent missed follow-ups, and distribute workload dynamically.
+**Intended purpose** — Support task visibility and workload coordination during controlled evaluation. It does not determine clinical scope or replace supervision.
 
 ---
 
@@ -98,9 +98,9 @@ Family members can locate patients without staff assistance.
 
 ### Benefits
 
-- Eliminates long ER information lines
-- Reduces front desk workload
-- Works anywhere with a printed QR code — no internet required
+- May reduce routine status enquiries in an approved deployment
+- May reduce front-desk lookup workload
+- Designed for configured local-network use; privacy, consent, access control, and network behavior require deployment-specific review
 
 > 📂 `api/routes/patients.py:92` → `GET /api/public/patients`
 > 📂 `api/routes/mesh.py:382` → `GET /api/mesh/qr` (generates QR with embedded WiFi + app URL)
@@ -116,7 +116,7 @@ Any location can become a supply inventory.
 - Dynamic inventory locations (create, rename, delete)
 - Stock tracking with minimum thresholds
 - Supply usage logging with user attribution
-- Automatic supply alternatives when items run low
+- Candidate supply-alternative suggestions for staff review when items run low
 - Activity log (who consumed/restocked what, when)
 - Auto-cascade: deleting a location moves items to default
 
@@ -124,26 +124,26 @@ Any location can become a supply inventory.
 
 ---
 
-## 7. Predictive Supply Consumption & Auto-Alerts
+## 7. Supply Consumption & Alert Prototypes
 
-Treatment plans interact with inventory.
+Draft protocol-reference plans can be mapped to inventory for staff review.
 
 ### Flow
 
 1. Patient checked in
-2. Treatment plan generated
-3. Required supplies identified
-4. System prompts staff to consume supplies
-5. Inventory updates automatically
+2. Draft plan prepared for qualified review
+3. Candidate supplies identified
+4. System prompts authorised staff to confirm consumption
+5. Inventory updates after confirmation
 
 ### Auto-Alert System
 
-When stock drops below threshold, the system automatically:
+When recorded stock drops below a configured threshold, the system can:
 
 | Stock Level | Action |
 |---|---|
 | Below minimum | Broadcasts `⚠️ SUPPLY ALERT` to all connected devices |
-| Reaches zero | Triggers `🚨 SUPPLY EMERGENCY` with alternatives |
+| Reaches zero | Triggers `🚨 SUPPLY EMERGENCY` with candidate alternatives for review |
 
 Alerts are logged to the team chat and pushed via WebSocket to all connected clients.
 
@@ -153,17 +153,17 @@ Alerts are logged to the team chat and pushed via WebSocket to all connected cli
 
 ## 8. Medical Protocol System
 
-Supports structured emergency medicine protocols.
+Provides structured protocol-reference fields for evaluation by qualified personnel.
 
 - MARCH protocol (Massive hemorrhage, Airway, Respiration, Circulation, Hypothermia)
 - Hemorrhage classification
 - GCS (Glasgow Coma Scale) categorization
 - Triage priority assignment (T1–T4)
-- Treatment plan generation with drugs, Rx, recovery, and escalation
+- Draft informational plan fields covering medication references, recovery, and escalation for qualified review
 
 > 📂 `api/routes/patients.py:44` → `PatientPlan` model with `march`, `drugs`, `rx`, `recovery`, `escalate`
 
-**Purpose** — Guide clinicians and volunteers and standardize triage response.
+**Intended purpose** — Present consistent informational references to qualified personnel. The software does not diagnose, prescribe, authorise treatment, or replace clinical judgment.
 
 ---
 
@@ -193,7 +193,7 @@ Person A speaks Arabic
 
 ### Capabilities
 
-- 42 languages supported via NLLB-200 (600M parameter distilled model)
+- Interface codes are configured for 42 languages through NLLB-200; translation and voice quality require validation for each language and deployment context
 - CTranslate2 runtime (no PyTorch required) — fast, lean
 - SentencePiece tokenization with NLLB BCP-47 language codes
 - Phoneme transliteration via eSpeak for languages Kokoro wasn't trained on
@@ -202,7 +202,7 @@ Person A speaks Arabic
 > 📂 `api/bridge.py` → WebSocket at `/api/bridge/translate` (real-time translation + phonemization)
 > 📂 `api/routes/translate.py` → `POST /api/translate`, `POST /api/translate/batch`
 
-**Purpose** — A French medic treating a Pashto-speaking patient gets instant two-way translation. No interpreter. No internet. No delay.
+**Intended purpose** — Support multilingual communication on configured local hardware. Accuracy, latency, offline availability, and suitability for medical communication require human validation.
 
 ---
 
@@ -216,8 +216,8 @@ Person A speaks Arabic
 
 ### Text-to-Speech — Kokoro
 
-- Spoken instructions in the patient's language
-- Novel phoneme-based synthesis for languages the model was never trained on
+- Candidate spoken read-back in the selected language for human confirmation
+- Experimental phoneme-based synthesis for languages outside the model's native training coverage
 - eSpeak phonemizer converts native text → IPA phonetics → Kokoro output
 
 > 📂 `api/routes/stt.py` (speech-to-text), `api/routes/tts.py` (text-to-speech)
@@ -255,7 +255,7 @@ Real-time WebSocket-based mesh network connecting multiple devices over local Wi
 - Real-time patient sync — new/updated patients broadcast to all devices
 - Client join/leave notifications
 - Stale client auto-pruning (60-second timeout)
-- Up to 20 concurrent clients (WiFi hotspot limit)
+- Configuration target of up to 20 concurrent clients; actual capacity requires network and device testing
 
 > 📂 `api/routes/mesh.py` → WebSocket at `/ws/{client_id}`, REST endpoints under `/api/mesh/*`
 
@@ -273,7 +273,7 @@ Role-based hierarchy with automatic failover.
 > 📂 `api/routes/mesh.py:164` → `POST /api/mesh/promote`
 > 📂 `api/routes/mesh.py:141` → `GET /api/mesh/snapshot`
 
-**Purpose** — If the leader's device goes down, another device can take over without losing data.
+**Intended purpose** — Support continuity if a coordinating device becomes unavailable. Recovery behavior and data integrity require deployment-specific testing.
 
 ---
 
@@ -289,7 +289,7 @@ Handles transition between medical shifts.
 
 > 📂 `api/routes/patients.py:557` → `GET /api/reports/shift`
 
-**Purpose** — Ensure continuity of care between shifts.
+**Intended purpose** — Assist qualified teams with shift handoff; generated reports require review against the source record.
 
 ---
 
@@ -299,14 +299,14 @@ Print-ready patient records for transfer or evacuation.
 
 ### PDF Export
 
-- Complete patient record rendered as PDF (no external libraries)
+- Recorded patient data rendered as PDF for review (no external PDF library)
 - Demographics, triage, vitals, MARCH protocol, medications, timeline
 
 ### HTML Export (Medevac)
 
-- Print-optimized HTML with full clinical detail
+- Print-optimized HTML with recorded operational and clinical fields
 - Multilingual — UI labels and dynamic content translated via NLLB
-- Includes triage color-coding, event timeline (last 20), and treatment orders
+- Includes triage color-coding, event timeline (last 20), and draft plan entries requiring qualified review
 
 ### Data Replication
 
@@ -332,7 +332,7 @@ A dynamic emergency notification system.
 > 📂 `api/routes/mesh.py:264` → `POST /api/mesh/announcement`
 > 📂 `api/routes/mesh.py:189` → `POST /api/mesh/alert` (targeted or broadcast)
 
-**Purpose** — Rapidly notify responsible personnel and reduce communication delays.
+**Intended purpose** — Support rapid notification of configured personnel; delivery and response times are not guaranteed.
 
 ---
 
@@ -340,12 +340,12 @@ A dynamic emergency notification system.
 
 | Model | Role | Runtime |
 |---|---|---|
-| MedGemma 4B | Medical reasoning, differential diagnosis, drug interactions | llama.cpp (GGUF) |
+| MedGemma 4B | Informational suggestions for qualified review; not diagnosis, prescribing, or medical advice | llama.cpp (GGUF) |
 | NLLB-200 600M | Neural machine translation (42 languages) | CTranslate2 |
 | Faster Whisper | Speech-to-text (multilingual) | CTranslate2 |
 | Kokoro | Text-to-speech (multilingual via phoneme bridge) | ONNX Runtime |
 
-All models run locally. No data leaves the machine.
+The default alpha design supports local model execution. Operator configuration, downloads, updates, integrations, and optional external services may create network traffic or data egress and require separate privacy and security review.
 
 > 📂 `api/routes/inference.py` → MedGemma (prefers `medgemma*.gguf`)
 > 📂 `api/routes/translate.py` → NLLB-200 via CTranslate2
@@ -356,7 +356,7 @@ All models run locally. No data leaves the machine.
 
 ## 17. Auto-Download Distribution System
 
-Models auto-download on first launch — zero manual setup required.
+The alpha build can download model packs during setup. Network access, storage, licensing, integrity checks, and operator confirmation may be required.
 
 - 4 model packs: Voice (89 MB), STT (141 MB), Translation (2.3 GB), AI (2.4 GB)
 - Resumable downloads (HTTP Range support)
@@ -371,7 +371,7 @@ Models auto-download on first launch — zero manual setup required.
 
 ## 18. Portable Runtime Environment
 
-The entire system is self-contained.
+The alpha build is designed as a portable local package; platform coverage and dependency behavior require build-specific verification.
 
 - Portable Python (standalone, no system install required)
 - Embedded dependencies (all wheels bundled)
@@ -381,10 +381,10 @@ The entire system is self-contained.
 
 ### Benefits
 
-- Deployable in field hospitals
-- Zero setup — `python start.py` and go
-- Works in low-infrastructure environments
-- No internet required after initial model download
+- Intended for controlled evaluation of field-coordination workflows
+- Guided startup through `python start.py`; setup and environment validation may still be required
+- Designed for evaluation in low-infrastructure environments
+- Core local workflows are designed to continue without permanent internet after required assets are installed
 
 > 📂 `start.py` → unified entry point
 > 📂 `dev/build_and_deploy.py` → `--platform win` / `--platform mac`
