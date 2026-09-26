@@ -18,7 +18,8 @@
   <link rel="apple-touch-icon" href="images/icon.png" sizes="180x180">
 
   <!-- Styles -->
-  <link rel="stylesheet" href="styles.css?v=1.0.2">
+  <link rel="stylesheet" href="styles.css?v=1.0.3">
+  <noscript><style>.fade-in{opacity:1!important;transform:none!important}</style></noscript>
   <style>
     /* HermetiQ Page Specific */
     .hq-hero {
@@ -264,9 +265,9 @@
       <a href="hermetiq.html" class="active" style="font-family: var(--font-accent); letter-spacing: 0.05em;">HermetiQ</a>
       <a href="index.html#contact">Contact</a>
     </div>
-    <div class="hamburger" id="hamburger" aria-label="Toggle navigation">
+    <button class="hamburger" id="hamburger" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks">
       <span></span><span></span><span></span>
-    </div>
+    </button>
   </nav>
 
   <!-- ========== HERO ========== -->
@@ -419,6 +420,6 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="quantum-mesh.js"></script>
-  <script src="script.js?v=1.0.2"></script>
+  <script src="script.js?v=1.0.3"></script>
 </body>
 </html>

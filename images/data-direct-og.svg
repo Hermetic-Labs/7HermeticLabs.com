@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Data Direct by Hermetic Labs</title>
+  <desc id="desc">A black Hermetic Labs graphic with the RGB Data Direct mark and a source-backed project viewport.</desc>
+  <defs>
+    <linearGradient id="blueFade" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#07110c"/>
+      <stop offset="1" stop-color="#060817"/>
+    </linearGradient>
+    <linearGradient id="signal" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ff0303"/>
+      <stop offset=".5" stop-color="#33a33c"/>
+      <stop offset="1" stop-color="#2740cc"/>
+    </linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0v40" fill="none" stroke="#2fb4a5" stroke-opacity=".11"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="630" fill="#020403"/>
+  <rect x="18" y="18" width="1164" height="594" rx="26" fill="url(#blueFade)" stroke="#2fb4a5" stroke-opacity=".22"/>
+  <rect x="18" y="18" width="1164" height="594" rx="26" fill="url(#grid)" opacity=".55"/>
+  <path d="M46 48h1108" stroke="url(#signal)" stroke-width="4"/>
+
+  <g transform="translate(72 96) scale(.62)">
+    <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M58 38v180" stroke="#33a33c" stroke-width="18"/>
+      <path d="M58 38h63c45 0 82 27 94 66" stroke="#ff0303" stroke-width="18"/>
+      <path d="M216 126c0 51-42 92-95 92H58" stroke="#2740cc" stroke-width="18"/>
+      <path d="M88 91h38l38 37-38 37H88" stroke="#f5f7f6" stroke-width="11"/>
+    </g>
+    <rect x="77" y="80" width="22" height="22" rx="4" fill="#ff0303"/>
+    <circle cx="164" cy="128" r="12" fill="#2fb4a5" stroke="#06130e" stroke-width="5"/>
+    <path d="M117 152h22M117 162h12" stroke="#2740cc" stroke-width="6" stroke-linecap="round"/>
+  </g>
+
+  <text x="250" y="158" fill="#f5f7f6" font-family="Montserrat,Arial,sans-serif" font-size="58" font-weight="700" letter-spacing="10">DATA DIRECT</text>
+  <text x="254" y="193" fill="#7b8d87" font-family="Montserrat,Arial,sans-serif" font-size="14" font-weight="700" letter-spacing="6">BY HERMETIC LABS</text>
+
+  <text x="72" y="305" fill="#f5f7f6" font-family="Montserrat,Arial,sans-serif" font-size="43" font-weight="600">See the project.</text>
+  <text x="72" y="360" fill="#8fd8cc" font-family="Montserrat,Arial,sans-serif" font-size="43" font-weight="600">Follow the source.</text>
+  <text x="72" y="415" fill="#f5f7f6" font-family="Montserrat,Arial,sans-serif" font-size="43" font-weight="600">Know what happens next.</text>
+  <text x="75" y="477" fill="#91a09b" font-family="Montserrat,Arial,sans-serif" font-size="18">One spatial, source-backed view for data-center communities.</text>
+
+  <g transform="translate(735 110)" font-family="Montserrat,Arial,sans-serif">
+    <rect width="388" height="404" rx="22" fill="#030706" stroke="#2fb4a5" stroke-opacity=".34"/>
+    <rect width="388" height="404" rx="22" fill="url(#grid)"/>
+    <path d="M42 306c72-91 125-65 172-137s90-45 135-98" fill="none" stroke="#4f6f65" stroke-opacity=".45" stroke-width="2"/>
+    <path d="M94 146c54 23 82 54 111 91s62 38 104 62" fill="none" stroke="#33a33c" stroke-width="4" stroke-dasharray="7 9"/>
+    <circle cx="94" cy="146" r="24" fill="#06120b" stroke="#33a33c" stroke-width="2"/>
+    <circle cx="94" cy="146" r="8" fill="#33a33c"/>
+    <circle cx="309" cy="299" r="24" fill="#070a16" stroke="#2740cc" stroke-width="2"/>
+    <circle cx="309" cy="299" r="8" fill="#2740cc"/>
+    <rect x="37" y="179" width="116" height="34" rx="8" fill="#07110c" stroke="#33a33c" stroke-opacity=".45"/>
+    <text x="95" y="200" text-anchor="middle" fill="#dce8e3" font-size="10" font-weight="700">FAYETTE / QTS</text>
+    <rect x="232" y="331" width="135" height="34" rx="8" fill="#070a16" stroke="#2740cc" stroke-opacity=".45"/>
+    <text x="299" y="352" text-anchor="middle" fill="#dce3ef" font-size="10" font-weight="700">EFFINGHAM</text>
+    <circle cx="204" cy="236" r="16" fill="#090c0b" stroke="#e5ece9" stroke-opacity=".7"/>
+    <path d="M197 236h14M204 229v14" stroke="#e5ece9" stroke-width="2"/>
+    <text x="24" y="34" fill="#72a398" font-size="10" letter-spacing="2">GEORGIA PILOT VIEW</text>
+    <text x="24" y="382" fill="#63756f" font-size="9" letter-spacing="1">SCHEMATIC • NOT PARCEL GEOMETRY</text>
+  </g>
+
+  <rect x="72" y="540" width="252" height="38" rx="19" fill="#07110c" stroke="#33a33c" stroke-opacity=".45"/>
+  <circle cx="94" cy="559" r="5" fill="#33a33c"/>
+  <text x="110" y="565" fill="#aebbb7" font-family="Montserrat,Arial,sans-serif" font-size="12" font-weight="700" letter-spacing="2">GEORGIA PILOT · IN DEVELOPMENT</text>
+</svg>
