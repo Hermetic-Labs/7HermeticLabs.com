@@ -861,7 +861,15 @@ section:nth-child(even) {
 .footer-links a:hover { color: var(--teal); }
 
 /* ---------- Ecosystem carousel ---------- */
-.ecosystem-heading { margin-top: 80px; text-align: center; }
+.ecosystem-section {
+  overflow: hidden;
+  border-bottom: 1px solid rgba(47,180,165,0.12);
+  background:
+    radial-gradient(circle at 50% 10%, rgba(47,180,165,0.08), transparent 30rem),
+    var(--bg-section) !important;
+}
+.ecosystem-heading { text-align: center; }
+.ecosystem-heading .section-title { margin-bottom: 18px; }
 .ecosystem-heading .section-desc { margin-bottom: 34px; }
 .ecosystem-carousel { position: relative; margin: 0 -24px; overflow: hidden; padding: 18px 0 2px; }
 .ecosystem-viewport { overflow: visible; }
