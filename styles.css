@@ -863,7 +863,7 @@ section:nth-child(even) {
 /* ---------- Ecosystem carousel ---------- */
 .ecosystem-heading { margin-top: 80px; text-align: center; }
 .ecosystem-heading .section-desc { margin-bottom: 34px; }
-.ecosystem-carousel { position: relative; margin: 0 calc(50% - 50vw); overflow: hidden; padding: 18px 0 2px; }
+.ecosystem-carousel { position: relative; margin: 0 -24px; overflow: hidden; padding: 18px 0 2px; }
 .ecosystem-viewport { overflow: visible; }
 .ecosystem-track {
   display: flex;
