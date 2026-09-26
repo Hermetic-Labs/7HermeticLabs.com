@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-labelledby="title">
+  <title id="title">Data Direct</title>
+  <path d="M5 9h22c8 0 14 4 16 11" fill="none" stroke="#ff0303" stroke-width="5.5" stroke-linecap="round"/>
+  <path d="M43 20v12c0 7-5 12-12 12" fill="none" stroke="#2740cc" stroke-width="5.5" stroke-linecap="round"/>
+  <path d="M31 44H6" fill="none" stroke="#33a33c" stroke-width="5.5" stroke-linecap="round"/>
+  <path d="m15 29 9-8 9 8v10H15Z" fill="#07100d" stroke="#dce6e2" stroke-width="2.25" stroke-linejoin="round"/>
+  <circle cx="24" cy="17" r="4.5" fill="#2fb4a5" stroke="#07100d" stroke-width="2.25"/>
+</svg>

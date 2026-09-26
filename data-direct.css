@@ -101,9 +101,10 @@
 }
 
 .dd-mark {
-  width: 70px;
-  height: 70px;
+  width: 82px;
+  height: 82px;
   flex: 0 0 auto;
+  object-fit: contain;
 }
 
 .dd-product-name {
@@ -214,7 +215,11 @@
 }
 
 .dd-hero-figure img {
-  width: 100%;
+  width: min(620px, 100%);
+  margin: 0 auto;
+  display: block;
+  object-fit: contain;
+  transform: translateX(-3%);
   filter: drop-shadow(0 32px 80px rgba(0, 0, 0, 0.52));
 }
 
@@ -255,7 +260,7 @@
 
 .dd-system,
 .dd-method,
-.dd-pilot,
+.dd-deployment,
 .dd-principles,
 .dd-close {
   padding: clamp(92px, 11vw, 150px) 5%;
@@ -339,8 +344,7 @@
 }
 
 .dd-viewport-principles h3,
-.dd-loop-step h3,
-.dd-project-card h3 {
+.dd-loop-step h3 {
   position: relative;
   color: #eef3f1;
   font-size: 1.3rem;
@@ -421,7 +425,7 @@
 
 .dd-trace span { color: #3f4c48; }
 
-.dd-pilot {
+.dd-deployment {
   background:
     radial-gradient(circle at 16% 38%, rgba(51, 163, 60, 0.08), transparent 28rem),
     radial-gradient(circle at 86% 62%, rgba(39, 64, 204, 0.09), transparent 30rem),
@@ -430,85 +434,245 @@
   border-bottom: 1px solid rgba(47, 180, 165, 0.1);
 }
 
-.dd-project-grid {
+.dd-deployment-heading {
+  margin-bottom: 36px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 22px;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 40px;
+  align-items: end;
 }
 
-.dd-project-card {
-  min-height: 390px;
-  padding: clamp(30px, 4vw, 48px);
-  display: flex;
-  flex-direction: column;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 18px;
-  background: rgba(7, 10, 9, 0.88);
-  overflow: hidden;
-  position: relative;
+.dd-deployment-heading > div:first-child { max-width: 850px; }
+
+.dd-deployment-heading h2 {
+  margin: 14px 0 22px;
+  color: #f2f5f4;
+  font-size: clamp(2.15rem, 4vw, 4.25rem);
+  font-weight: 600;
+  letter-spacing: -0.045em;
+  line-height: 1.06;
 }
 
-.dd-project-card::after {
-  content: '';
-  position: absolute;
-  right: -68px;
-  bottom: -68px;
-  width: 220px;
-  height: 220px;
-  border: 1px solid currentColor;
-  border-radius: 50%;
-  opacity: 0.08;
-  box-shadow: 0 0 0 30px currentColor, 0 0 0 60px currentColor;
+.dd-deployment-heading > div:first-child > p:last-child {
+  color: #9eaaa6;
+  font-size: clamp(1rem, 1.4vw, 1.15rem);
+  line-height: 1.8;
 }
 
-.dd-project-fayette { color: var(--dd-green); border-color: rgba(51, 163, 60, 0.28); }
-.dd-project-effingham { color: var(--dd-blue); border-color: rgba(39, 64, 204, 0.34); }
+.dd-pricing-note {
+  min-width: 205px;
+  padding: 16px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  border-radius: 12px;
+  background: rgba(6, 9, 8, 0.78);
+}
 
-.dd-project-topline {
-  display: flex;
+.dd-pricing-note strong,
+.dd-pricing-note span { display: block; }
+.dd-pricing-note strong { color: #dfe6e3; font-size: 0.8rem; }
+.dd-pricing-note span { margin-top: 5px; color: #73817d; font-size: 0.68rem; }
+
+.dd-access-banner {
+  margin-bottom: 18px;
+  padding: 16px 22px;
+  display: grid;
+  grid-template-columns: 1fr auto auto;
   align-items: center;
-  gap: 10px;
-  color: currentColor;
-  font-size: 0.68rem;
+  gap: 18px;
+  border: 1px solid rgba(47, 180, 165, 0.22);
+  border-radius: 14px;
+  background: linear-gradient(90deg, rgba(51, 163, 60, 0.08), rgba(39, 64, 204, 0.07));
+}
+
+.dd-access-banner span {
+  color: #c9d5d1;
+  font-size: 0.78rem;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
-.dd-project-dot { width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+.dd-access-banner strong { color: #fff; font-size: 1.6rem; }
+.dd-access-banner small { color: #7d8d88; font-size: 0.72rem; }
 
-.dd-project-place {
-  margin: auto 0 10px !important;
-  color: #6c7c77 !important;
-  font-size: 0.65rem !important;
-  font-weight: 700;
-  letter-spacing: 0.16em;
+.dd-service-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
 }
 
-.dd-project-card h3 { font-size: clamp(1.55rem, 2.8vw, 2.3rem); }
-
-.dd-project-tags {
-  margin-top: 26px;
+.dd-service-card {
+  min-height: 330px;
+  padding: 28px;
   display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
+  flex-direction: column;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 3px solid var(--card-accent);
+  border-radius: 16px;
+  background: linear-gradient(145deg, color-mix(in srgb, var(--card-accent) 7%, #080b09), #070908 54%);
 }
 
-.dd-project-tags span {
-  padding: 7px 10px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 999px;
-  color: #8f9c98;
-  background: rgba(255, 255, 255, 0.025);
-  font-size: 0.65rem;
+.dd-accent-red { --card-accent: var(--dd-red); }
+.dd-accent-green { --card-accent: var(--dd-green); }
+.dd-accent-blue { --card-accent: var(--dd-blue); }
+
+.dd-service-icon {
+  width: 52px;
+  height: 52px;
+  margin-bottom: 30px;
+  display: grid;
+  place-items: center;
+  border: 1px solid color-mix(in srgb, var(--card-accent) 48%, transparent);
+  border-radius: 13px;
+  color: color-mix(in srgb, var(--card-accent) 76%, white);
+  background: color-mix(in srgb, var(--card-accent) 9%, transparent);
 }
 
-.dd-pilot-note {
-  margin-top: 26px;
-  color: #75857f;
-  font-size: 0.78rem;
-  text-align: center;
+.dd-service-icon svg {
+  width: 30px;
+  height: 30px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
+
+.dd-service-copy > p {
+  margin-bottom: 8px;
+  color: color-mix(in srgb, var(--card-accent) 70%, white);
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.17em;
+}
+
+.dd-service-copy h3 {
+  min-height: 2.7em;
+  color: #edf2f0;
+  font-size: 1.08rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.dd-service-copy span {
+  display: block;
+  margin-top: 10px;
+  color: #82908b;
+  font-size: 0.8rem;
+  line-height: 1.6;
+}
+
+.dd-service-card dl {
+  margin-top: auto;
+  padding-top: 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.dd-service-card dl div {
+  padding-top: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.11);
+}
+
+.dd-service-card dt {
+  color: #687772;
+  font-size: 0.63rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.dd-service-card dd {
+  margin-top: 5px;
+  color: #f2f5f4;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.dd-deployment-total {
+  margin-top: 18px;
+  padding: 26px 30px;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: 24px;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.17);
+  border-radius: 16px;
+  background: linear-gradient(105deg, rgba(255, 3, 3, 0.08), rgba(51, 163, 60, 0.08) 50%, rgba(39, 64, 204, 0.09));
+}
+
+.dd-deployment-total > div:not(:first-child) { border-left: 1px solid rgba(255, 255, 255, 0.12); padding-left: 24px; }
+.dd-deployment-total span { display: block; color: #9daba6; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; }
+.dd-deployment-total > div:first-child span { color: #f3f5f4; font-size: 1rem; letter-spacing: 0.04em; }
+.dd-deployment-total small { color: #6f7e79; font-size: 0.7rem; }
+.dd-deployment-total strong { display: block; margin-top: 7px; color: #fff; font-size: clamp(1.55rem, 2.5vw, 2.15rem); font-weight: 600; }
+.dd-deployment-total strong small { margin-left: 4px; color: #899792; font-size: 0.7rem; font-weight: 500; }
+
+.dd-capacity {
+  margin-top: 72px;
+  padding: clamp(28px, 4vw, 52px);
+  border: 1px solid rgba(47, 180, 165, 0.18);
+  border-radius: 20px;
+  background: rgba(4, 8, 6, 0.82);
+}
+
+.dd-capacity-copy { max-width: 760px; }
+.dd-capacity-copy h3 { margin: 12px 0 14px; color: #edf2f0; font-size: clamp(1.65rem, 3vw, 2.6rem); line-height: 1.15; }
+.dd-capacity-copy > p:last-child { color: #8d9a96; line-height: 1.75; }
+
+.dd-formula-grid {
+  margin-top: 32px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.dd-formula-grid article {
+  padding: 24px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 10px;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  background: #080b09;
+}
+
+.dd-formula-grid article > span,
+.dd-formula-grid article > strong { grid-column: 1 / -1; }
+.dd-formula-grid article > span { color: #75847f; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.11em; text-transform: uppercase; }
+.dd-formula-grid article > strong { color: #dfe6e3; font-size: 0.9rem; }
+.dd-formula-grid code { padding: 11px 12px; color: #f0f5f3; border-radius: 8px; background: rgba(47, 180, 165, 0.08); font-family: inherit; font-size: 0.8rem; text-align: center; }
+.dd-formula-grid i { color: #63716d; font-size: 0.7rem; font-style: normal; text-transform: uppercase; }
+
+.dd-scale { margin-top: 34px; }
+.dd-scale-labels { display: grid; grid-template-columns: repeat(3, 1fr) 0.8fr; color: #667570; font-size: 0.65rem; }
+.dd-scale-labels span:nth-child(2), .dd-scale-labels span:nth-child(3) { text-align: center; }
+.dd-scale-labels span:last-child { text-align: right; }
+.dd-scale-track { margin-top: 10px; min-height: 48px; display: grid; grid-template-columns: 2fr 1fr; overflow: hidden; border-radius: 10px; }
+.dd-scale-track span, .dd-scale-track strong { display: grid; place-items: center; font-size: 0.72rem; letter-spacing: 0.04em; }
+.dd-scale-track span { color: #c6d2ce; background: linear-gradient(90deg, rgba(51, 163, 60, 0.34), rgba(47, 180, 165, 0.34)); }
+.dd-scale-track strong { color: #d9e0ff; background: linear-gradient(90deg, rgba(39, 64, 204, 0.46), rgba(39, 64, 204, 0.22)); }
+
+.dd-boundaries {
+  margin-top: 28px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  list-style: none;
+}
+
+.dd-boundaries li {
+  padding: 16px 0 0 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.11);
+  color: #7e8c87;
+  font-size: 0.76rem;
+  line-height: 1.6;
+  position: relative;
+}
+
+.dd-boundaries li::before { content: '•'; position: absolute; left: 0; color: #79b8ac; }
 
 .dd-principles { background: #020403 !important; }
 
@@ -586,7 +750,14 @@
   .dd-viewport-principles article { min-height: 250px; }
   .dd-loop { grid-template-columns: 1fr 1fr; }
   .dd-loop-arrow { display: none; }
-  .dd-project-grid { grid-template-columns: 1fr; }
+  .dd-deployment-heading { grid-template-columns: 1fr; gap: 20px; }
+  .dd-pricing-note { width: fit-content; }
+  .dd-service-grid { grid-template-columns: 1fr 1fr; }
+  .dd-deployment-total { grid-template-columns: 1fr 1fr; }
+  .dd-deployment-total > div:first-child { grid-column: 1 / -1; }
+  .dd-deployment-total > div:nth-child(2) { border-left: 0; padding-left: 0; }
+  .dd-formula-grid { grid-template-columns: 1fr; }
+  .dd-boundaries { grid-template-columns: 1fr; }
   .dd-principles-layout { grid-template-columns: 1fr; }
   .dd-principles-copy { position: static; }
 }
@@ -595,17 +766,27 @@
   .dd-hero { padding-top: calc(var(--nav-height) + 48px); }
   .dd-nav-brand img { height: 22px; }
   .dd-lockup { align-items: center; }
-  .dd-mark { width: 58px; height: 58px; }
+  .dd-mark { width: 64px; height: 64px; }
   .dd-product-name { font-size: 1.2rem; letter-spacing: 0.13em; }
   .dd-hero h1 { font-size: clamp(2.45rem, 13vw, 3.8rem); }
   .dd-actions { flex-direction: column; }
   .dd-actions .btn { width: 100%; }
   .dd-signal-strip { align-items: flex-start; flex-direction: column; gap: 14px; }
-  .dd-system, .dd-method, .dd-pilot, .dd-principles, .dd-close { padding-left: 6%; padding-right: 6%; }
+  .dd-system, .dd-method, .dd-deployment, .dd-principles, .dd-close { padding-left: 6%; padding-right: 6%; }
   .dd-loop { grid-template-columns: 1fr; }
   .dd-loop-step { min-height: 210px; }
   .dd-loop-step > span { margin-bottom: 42px; }
-  .dd-project-card { min-height: 370px; }
+  .dd-access-banner { grid-template-columns: 1fr auto; }
+  .dd-access-banner small { grid-column: 1 / -1; }
+  .dd-service-grid { grid-template-columns: 1fr; }
+  .dd-service-card { min-height: 310px; }
+  .dd-deployment-total { grid-template-columns: 1fr; }
+  .dd-deployment-total > div,
+  .dd-deployment-total > div:not(:first-child) { grid-column: auto; border-left: 0; padding-left: 0; }
+  .dd-deployment-total > div:not(:first-child) { padding-top: 18px; border-top: 1px solid rgba(255,255,255,0.12); }
+  .dd-scale-labels { grid-template-columns: repeat(3, 1fr); }
+  .dd-scale-labels span:last-child { display: none; }
+  .dd-scale-track { grid-template-columns: 2fr 1fr; }
   .dd-principle-list article { grid-template-columns: 1fr; gap: 10px; }
   .dd-trace { justify-content: flex-start; }
   .dd-hero-figure figcaption { text-align: left; }

@@ -456,7 +456,7 @@ section:nth-child(even) {
   gap: 16px;
   margin: 22px 0 24px;
 }
-.data-direct-feature-mark { width: 66px; height: 66px; }
+.data-direct-feature-mark { width: 78px; height: 78px; object-fit: contain; }
 .data-direct-feature-name {
   color: #fff;
   font-size: clamp(1.35rem, 2.3vw, 2rem);
@@ -510,7 +510,13 @@ section:nth-child(even) {
   outline: 2px solid var(--teal);
   outline-offset: 4px;
 }
-.data-direct-feature-visual img { width: 100%; }
+.data-direct-feature-visual img {
+  width: min(560px, 100%);
+  margin: 0 auto;
+  display: block;
+  object-fit: contain;
+  transform: translateX(-3%);
+}
 
 /* ---------- Exchange ---------- */
 .exchange-content {
