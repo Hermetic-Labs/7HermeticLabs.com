@@ -117,14 +117,38 @@ document.addEventListener('DOMContentLoaded', () => {
     const nextButton = ecosystemCarousel.querySelector('[data-carousel-next]');
     const dotsContainer = ecosystemCarousel.querySelector('[data-carousel-dots]');
     const position = ecosystemCarousel.querySelector('[data-carousel-position]');
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const autoplayDelay = 5000;
     let activeIndex = 0;
+    let autoplayTimer;
+    let carouselIsVisible = true;
+    let carouselIsPaused = false;
+
+    const stopAutoplay = () => {
+      window.clearInterval(autoplayTimer);
+      autoplayTimer = undefined;
+    };
+
+    const startAutoplay = () => {
+      stopAutoplay();
+      if (slides.length < 2 || reducedMotion.matches || document.hidden || !carouselIsVisible || carouselIsPaused) return;
+      autoplayTimer = window.setInterval(() => updateCarousel(activeIndex + 1), autoplayDelay);
+    };
+
+    const restartAutoplay = () => {
+      stopAutoplay();
+      startAutoplay();
+    };
 
     const dots = slides.map((slide, index) => {
       const dot = document.createElement('button');
       dot.type = 'button';
       dot.className = 'ecosystem-dot';
       dot.setAttribute('aria-label', `Show ${slide.querySelector('h3')?.textContent || `item ${index + 1}`}`);
-      dot.addEventListener('click', () => updateCarousel(index));
+      dot.addEventListener('click', () => {
+        updateCarousel(index);
+        restartAutoplay();
+      });
       dotsContainer.appendChild(dot);
       return dot;
     });
@@ -154,18 +178,55 @@ document.addEventListener('DOMContentLoaded', () => {
       position.textContent = `${String(activeIndex + 1).padStart(2, '0')} / ${String(slides.length).padStart(2, '0')} · ${activeSlide.querySelector('h3')?.textContent || ''}`;
     };
 
-    previousButton.addEventListener('click', () => updateCarousel(activeIndex - 1));
-    nextButton.addEventListener('click', () => updateCarousel(activeIndex + 1));
+    previousButton.addEventListener('click', () => {
+      updateCarousel(activeIndex - 1);
+      restartAutoplay();
+    });
+    nextButton.addEventListener('click', () => {
+      updateCarousel(activeIndex + 1);
+      restartAutoplay();
+    });
     ecosystemCarousel.addEventListener('keydown', (event) => {
       if (event.key === 'ArrowLeft') {
         event.preventDefault();
         updateCarousel(activeIndex - 1);
+        restartAutoplay();
       }
       if (event.key === 'ArrowRight') {
         event.preventDefault();
         updateCarousel(activeIndex + 1);
+        restartAutoplay();
       }
     });
+
+    ecosystemCarousel.addEventListener('pointerenter', () => {
+      carouselIsPaused = true;
+      stopAutoplay();
+    });
+    ecosystemCarousel.addEventListener('pointerleave', () => {
+      carouselIsPaused = false;
+      startAutoplay();
+    });
+    ecosystemCarousel.addEventListener('focusin', () => {
+      carouselIsPaused = true;
+      stopAutoplay();
+    });
+    ecosystemCarousel.addEventListener('focusout', (event) => {
+      if (ecosystemCarousel.contains(event.relatedTarget)) return;
+      carouselIsPaused = false;
+      startAutoplay();
+    });
+
+    document.addEventListener('visibilitychange', startAutoplay);
+    reducedMotion.addEventListener('change', startAutoplay);
+
+    if ('IntersectionObserver' in window) {
+      const autoplayObserver = new IntersectionObserver(([entry]) => {
+        carouselIsVisible = entry.isIntersecting;
+        startAutoplay();
+      }, { threshold: 0.2 });
+      autoplayObserver.observe(ecosystemCarousel);
+    }
 
     let resizeFrame;
     window.addEventListener('resize', () => {
@@ -174,6 +235,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { passive: true });
 
     updateCarousel(0, false);
+    startAutoplay();
   }
 });
 
