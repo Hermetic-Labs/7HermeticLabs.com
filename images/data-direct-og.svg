@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
-  <title id="title">Data Direct by Hermetic Labs</title>
-  <desc id="desc">A black Hermetic Labs graphic with the RGB Data Direct mark and a source-backed project viewport.</desc>
+  <title id="title">Data Center Direct by Hermetic Labs</title>
+  <desc id="desc">A black Hermetic Labs graphic with the RGB Data Center Direct mark and a source-backed project viewport.</desc>
   <defs>
     <linearGradient id="blueFade" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#07110c"/>
@@ -33,7 +33,7 @@
     <path d="M117 152h22M117 162h12" stroke="#2740cc" stroke-width="6" stroke-linecap="round"/>
   </g>
 
-  <text x="250" y="158" fill="#f5f7f6" font-family="Montserrat,Arial,sans-serif" font-size="58" font-weight="700" letter-spacing="10">DATA DIRECT</text>
+  <text x="250" y="158" fill="#f5f7f6" font-family="Montserrat,Arial,sans-serif" font-size="46" font-weight="700" letter-spacing="7">DATA CENTER DIRECT</text>
   <text x="254" y="193" fill="#7b8d87" font-family="Montserrat,Arial,sans-serif" font-size="14" font-weight="700" letter-spacing="6">BY HERMETIC LABS</text>
 
   <text x="72" y="305" fill="#f5f7f6" font-family="Montserrat,Arial,sans-serif" font-size="43" font-weight="600">See the project.</text>
