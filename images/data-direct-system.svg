@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">Data Center Direct single-viewport system</title>
+  <desc id="desc">A schematic project viewport connects a campus context to source, question, and status cards.</desc>
+  <defs>
+    <linearGradient id="frame" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1712"/>
+      <stop offset="0.55" stop-color="#050908"/>
+      <stop offset="1" stop-color="#07101b"/>
+    </linearGradient>
+    <linearGradient id="rgb" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#e13333"/>
+      <stop offset="0.5" stop-color="#2fbf71"/>
+      <stop offset="1" stop-color="#3992ff"/>
+    </linearGradient>
+    <pattern id="grid" width="38" height="38" patternUnits="userSpaceOnUse">
+      <path d="M38 0H0v38" fill="none" stroke="#2fb4a5" stroke-opacity=".12" stroke-width="1"/>
+    </pattern>
+    <filter id="glow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="7" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect x="8" y="8" width="1184" height="744" rx="30" fill="url(#frame)" stroke="#2fb4a5" stroke-opacity=".28"/>
+  <path d="M38 62h1124" stroke="url(#rgb)" stroke-width="3"/>
+  <circle cx="44" cy="35" r="5" fill="#e13333"/>
+  <circle cx="62" cy="35" r="5" fill="#2fbf71"/>
+  <circle cx="80" cy="35" r="5" fill="#3992ff"/>
+  <text x="104" y="42" fill="#f4f7f5" font-family="Montserrat,Arial,sans-serif" font-size="15" font-weight="700" letter-spacing="3">DATA CENTER DIRECT</text>
+  <text x="1158" y="42" text-anchor="end" fill="#77b8ad" font-family="Montserrat,Arial,sans-serif" font-size="12" letter-spacing="2">PROJECT VIEW</text>
+
+  <g transform="translate(38 84)">
+    <rect width="810" height="626" rx="20" fill="#020605" stroke="#2fb4a5" stroke-opacity=".26"/>
+    <rect width="810" height="626" rx="20" fill="url(#grid)"/>
+
+    <g fill="none" stroke="#58736b" stroke-opacity=".28" stroke-width="2">
+      <path d="M-32 525C103 461 148 500 252 428S430 382 509 301s128-65 336-174"/>
+      <path d="M-28 270c156 66 244 34 323-19s179-43 254 8 159 38 293-21"/>
+      <path d="M82-15c45 91 113 130 189 142s117 82 166 140 136 82 229 54 122 15 184 66"/>
+    </g>
+
+    <path d="M294 238C356 278 385 327 433 370s102 50 159 84" fill="none" stroke="#2fbf71" stroke-width="4" stroke-dasharray="8 10" opacity=".82"/>
+    <path d="M294 238c-59 31-107 75-140 134" fill="none" stroke="#e13333" stroke-width="2" stroke-dasharray="5 9" opacity=".58"/>
+    <path d="M592 454c75-35 126-32 182-12" fill="none" stroke="#3992ff" stroke-width="2" stroke-dasharray="5 9" opacity=".62"/>
+
+    <g transform="translate(294 238)">
+      <circle r="34" fill="#05130d" stroke="#2fbf71" stroke-width="2"/>
+      <circle r="12" fill="#2fbf71" filter="url(#glow)"/>
+      <rect x="-67" y="46" width="134" height="49" rx="10" fill="#09140f" stroke="#2fbf71" stroke-opacity=".5"/>
+      <text y="66" text-anchor="middle" fill="#f5f7f6" font-family="Montserrat,Arial,sans-serif" font-size="12" font-weight="700" letter-spacing="1">CAMPUS CONTEXT</text>
+      <text y="83" text-anchor="middle" fill="#7da298" font-family="Montserrat,Arial,sans-serif" font-size="10">PROJECT-SCOPED</text>
+    </g>
+
+    <g transform="translate(592 454)">
+      <circle r="34" fill="#07101b" stroke="#3992ff" stroke-width="2"/>
+      <circle r="12" fill="#3992ff" filter="url(#glow)"/>
+      <rect x="-91" y="46" width="182" height="49" rx="10" fill="#081019" stroke="#3992ff" stroke-opacity=".5"/>
+      <text y="66" text-anchor="middle" fill="#f5f7f6" font-family="Montserrat,Arial,sans-serif" font-size="12" font-weight="700" letter-spacing="1">EVIDENCE CONTEXT</text>
+      <text y="83" text-anchor="middle" fill="#8099b4" font-family="Montserrat,Arial,sans-serif" font-size="10">VERSIONED RECORD</text>
+    </g>
+
+    <g transform="translate(405 298)">
+      <circle r="20" fill="#0d0d0d" stroke="#f5f7f6" stroke-opacity=".6"/>
+      <path d="M-8 0h16M0-8v16" stroke="#f5f7f6" stroke-width="2"/>
+    </g>
+
+    <g transform="translate(24 24)">
+      <rect width="188" height="54" rx="10" fill="#08100d" stroke="#2fb4a5" stroke-opacity=".3"/>
+      <text x="16" y="23" fill="#7da298" font-family="Montserrat,Arial,sans-serif" font-size="10" letter-spacing="2">VIEWPORT</text>
+      <text x="16" y="42" fill="#f5f7f6" font-family="Montserrat,Arial,sans-serif" font-size="13" font-weight="700">Standard campus context</text>
+    </g>
+
+    <text x="24" y="600" fill="#64847b" font-family="Montserrat,Arial,sans-serif" font-size="10" letter-spacing="1.4">SCHEMATIC PROJECT VIEW • NOT PARCEL GEOMETRY</text>
+  </g>
+
+  <g transform="translate(876 84)" font-family="Montserrat,Arial,sans-serif">
+    <rect width="286" height="626" rx="20" fill="#070a09" stroke="#2fb4a5" stroke-opacity=".24"/>
+    <text x="24" y="38" fill="#789c92" font-size="10" letter-spacing="2.2">PROGRESSIVE DISCLOSURE</text>
+    <text x="24" y="65" fill="#f5f7f6" font-size="20" font-weight="700">Open only what matters.</text>
+
+    <g transform="translate(18 96)">
+      <rect width="250" height="118" rx="14" fill="#100808" stroke="#e13333" stroke-opacity=".48"/>
+      <circle cx="24" cy="25" r="6" fill="#e13333"/>
+      <text x="40" y="29" fill="#f3a5a5" font-size="10" font-weight="700" letter-spacing="1.5">SOURCE</text>
+      <text x="18" y="59" fill="#f5f7f6" font-size="14" font-weight="700">Authoritative record</text>
+      <text x="18" y="82" fill="#a99898" font-size="11">Origin, date, jurisdiction</text>
+      <text x="18" y="99" fill="#a99898" font-size="11">and version stay attached.</text>
+    </g>
+
+    <g transform="translate(18 230)">
+      <rect width="250" height="118" rx="14" fill="#071009" stroke="#2fbf71" stroke-opacity=".48"/>
+      <circle cx="24" cy="25" r="6" fill="#2fbf71"/>
+      <text x="40" y="29" fill="#8de0ad" font-size="10" font-weight="700" letter-spacing="1.5">QUESTION</text>
+      <text x="18" y="59" fill="#f5f7f6" font-size="14" font-weight="700">What does this mean here?</text>
+      <text x="18" y="82" fill="#91aa99" font-size="11">The route back to evidence</text>
+      <text x="18" y="99" fill="#91aa99" font-size="11">remains inspectable.</text>
+    </g>
+
+    <g transform="translate(18 364)">
+      <rect width="250" height="118" rx="14" fill="#070d14" stroke="#3992ff" stroke-opacity=".48"/>
+      <circle cx="24" cy="25" r="6" fill="#3992ff"/>
+      <text x="40" y="29" fill="#91bdff" font-size="10" font-weight="700" letter-spacing="1.5">STATUS</text>
+      <text x="18" y="59" fill="#f5f7f6" font-size="14" font-weight="700">Needs verification</text>
+      <text x="18" y="82" fill="#8fa4bd" font-size="11">Owner, deadline, evidence</text>
+      <text x="18" y="99" fill="#8fa4bd" font-size="11">and remedy are visible.</text>
+    </g>
+
+    <path d="M32 516h222" stroke="url(#rgb)" stroke-width="3"/>
+    <text x="24" y="552" fill="#f5f7f6" font-size="12" font-weight="700">SOURCE → QUESTION → ACTION → PROOF</text>
+    <text x="24" y="577" fill="#6f8d84" font-size="11">AI routes. People and records</text>
+    <text x="24" y="594" fill="#6f8d84" font-size="11">remain accountable.</text>
+  </g>
+</svg>

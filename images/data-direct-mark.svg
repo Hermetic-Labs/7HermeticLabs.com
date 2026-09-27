@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">Data Center Direct mark</title>
+  <desc id="desc">A segmented red, green, and blue letter D containing a direct routed line and evidence node.</desc>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M58 38v180" stroke="#33a33c" stroke-width="18"/>
+    <path d="M58 38h63c45 0 82 27 94 66" stroke="#ff0303" stroke-width="18"/>
+    <path d="M216 126c0 51-42 92-95 92H58" stroke="#2740cc" stroke-width="18"/>
+    <path d="M88 91h38l38 37-38 37H88" stroke="#f5f7f6" stroke-width="11"/>
+  </g>
+  <rect x="77" y="80" width="22" height="22" rx="4" fill="#ff0303"/>
+  <circle cx="164" cy="128" r="12" fill="#2fb4a5" stroke="#06130e" stroke-width="5"/>
+  <path d="M117 152h22M117 162h12" stroke="#2740cc" stroke-width="6" stroke-linecap="round"/>
+</svg>
