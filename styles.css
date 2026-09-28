@@ -475,6 +475,103 @@ section:nth-child(even) {
 .data-direct-feature-visual:focus-visible { outline: 2px solid var(--teal); outline-offset: 6px; }
 .data-direct-feature-visual img { width: min(290px, 88%); filter: drop-shadow(0 24px 50px rgba(0,0,0,0.44)); }
 
+/* ---------- Featured ventures ---------- */
+.venture-feature {
+  padding: clamp(64px, 8vw, 96px) 5%;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.venture-feature-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 440px);
+  align-items: center;
+  gap: clamp(42px, 8vw, 110px);
+}
+.venture-feature-grid--reverse { grid-template-columns: minmax(300px, 440px) minmax(0, 1fr); }
+.venture-feature-copy { max-width: 720px; }
+.venture-feature-copy .section-label { color: var(--venture-accent, var(--teal)); }
+.venture-feature-copy h2 {
+  margin-bottom: 20px;
+  font-size: clamp(2rem, 4.2vw, 3.65rem);
+  line-height: 1.07;
+  letter-spacing: -0.045em;
+}
+.venture-feature-copy > p:not(.section-label) {
+  max-width: 680px;
+  margin-bottom: 26px;
+  color: var(--text-muted);
+  font-size: 1rem;
+  line-height: 1.78;
+}
+.venture-feature-copy .venture-guardrail {
+  padding-left: 16px;
+  border-left: 2px solid var(--venture-accent, var(--teal));
+  color: var(--text-dim) !important;
+  font-size: 0.78rem !important;
+}
+.venture-feature-visual {
+  min-height: 380px;
+  display: grid;
+  place-items: center;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 18px;
+  background: rgba(0,0,0,0.44);
+  transition: transform var(--transition), border-color var(--transition);
+}
+.venture-feature-visual::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 44%, var(--venture-glow, rgba(47,180,165,0.18)), transparent 62%);
+}
+.venture-feature-visual:hover { transform: translateY(-4px); border-color: var(--venture-accent, var(--teal)); }
+.venture-feature-visual:focus-visible { outline: 2px solid var(--venture-accent, var(--teal)); outline-offset: 6px; }
+.venture-feature-visual img { position: relative; z-index: 1; }
+.abbe-faria-feature {
+  --venture-accent: #d9cfb7;
+  --venture-glow: rgba(213,198,168,0.2);
+  background:
+    radial-gradient(circle at 82% 42%, rgba(57,146,255,0.09), transparent 24rem),
+    radial-gradient(circle at 72% 60%, rgba(225,51,51,0.08), transparent 30rem),
+    #050505 !important;
+}
+.abbe-faria-visual img { width: min(350px, 82%); filter: drop-shadow(0 24px 46px rgba(0,0,0,0.68)); }
+.vrf-feature {
+  --venture-accent: #63dff4;
+  --venture-glow: rgba(58,210,238,0.2);
+  background:
+    radial-gradient(circle at 24% 44%, rgba(58,210,238,0.1), transparent 24rem),
+    #020507 !important;
+}
+.vrf-visual img { width: min(390px, 92%); filter: drop-shadow(0 20px 38px rgba(0,0,0,0.58)); }
+.venture-lockup { display: flex; align-items: center; gap: 14px; margin: 12px 0 22px; }
+.venture-lockup img { width: 56px; height: 56px; object-fit: contain; }
+.venture-lockup span { display: flex; flex-direction: column; }
+.venture-lockup strong { font-size: 1.3rem; letter-spacing: 0.2em; }
+.venture-lockup small { color: var(--text-dim); font-size: 0.67rem; letter-spacing: 0.13em; text-transform: uppercase; }
+
+/* ---------- EVE-OS chapter ---------- */
+.eve-section {
+  padding: clamp(68px, 8vw, 92px) 5%;
+  border-top: 1px solid rgba(47,180,165,0.16);
+  border-bottom: 1px solid rgba(47,180,165,0.16);
+  background:
+    radial-gradient(circle at 50% 8%, rgba(47,180,165,0.09), transparent 28rem),
+    #030504 !important;
+}
+.eve-section .about-header { max-width: 860px; margin: 0 auto 42px; }
+.eve-section-logo { width: 86px; height: 86px; object-fit: contain; margin: 0 auto 20px; filter: drop-shadow(0 12px 24px rgba(0,0,0,0.52)); }
+.eve-section .section-divider { margin-bottom: 26px; }
+.eve-section .section-title { max-width: 800px; margin: 0 auto 18px; }
+.eve-section .about-desc { max-width: 790px; margin-bottom: 0; }
+.eve-architecture { margin: 0 0 34px; gap: 18px; }
+.eve-architecture .how-card { min-height: 210px; padding: 28px; text-align: left; background: rgba(13,13,13,0.82); }
+.eve-architecture .how-icon { width: 38px; height: 38px; display: grid; place-items: center; margin-bottom: 18px; border: 1px solid rgba(47,180,165,0.26); border-radius: 50%; color: var(--teal); font-size: 1.1rem; }
+.eve-architecture .how-card p { line-height: 1.65; }
+.eve-section .eve-access-panel { margin-top: 0; }
+
 /* ---------- Exchange ---------- */
 .exchange-content {
   display: flex;
@@ -1137,11 +1234,15 @@ a.trust-card:hover {
 .ecosystem-slide--halt .ecosystem-slide-visual { background-color: rgba(30,6,6,0.32); }
 .ecosystem-slide--halt .ecosystem-slide-visual img { width: 170px; height: 170px; }
 .ecosystem-slide--eve { --ecosystem-accent: #2fb4a5; --ecosystem-glow: rgba(47,180,165,0.24); }
-.ecosystem-slide--eve .ecosystem-slide-visual img { width: min(380px, 82%); height: auto; }
+.ecosystem-slide--eve .ecosystem-slide-visual img { width: 150px; height: 150px; object-fit: contain; }
 .ecosystem-slide--exchange { --ecosystem-accent: #d8b4fe; --ecosystem-glow: rgba(168,85,247,0.22); }
 .ecosystem-slide--exchange .ecosystem-slide-visual img { width: 170px; height: 170px; }
 .ecosystem-slide--quantum { --ecosystem-accent: #6ba9ff; --ecosystem-glow: rgba(57,146,255,0.27); }
 .ecosystem-slide--quantum .ecosystem-slide-visual img { width: min(360px, 88%); height: 92%; }
+.ecosystem-slide--abbe { --ecosystem-accent: #d9cfb7; --ecosystem-glow: rgba(213,198,168,0.23); }
+.ecosystem-slide--abbe .ecosystem-slide-visual img { width: 100%; height: 100%; object-fit: cover; }
+.ecosystem-slide--vrf { --ecosystem-accent: #63dff4; --ecosystem-glow: rgba(58,210,238,0.24); }
+.ecosystem-slide--vrf .ecosystem-slide-visual img { width: 154px; height: 154px; object-fit: contain; }
 .ecosystem-slide h3 { position: relative; z-index: 1; margin-bottom: 10px; font-size: clamp(1.65rem, 3vw, 2.4rem); letter-spacing: -0.03em; }
 .ecosystem-slide p { position: relative; z-index: 1; max-width: 570px; color: var(--text-muted); font-size: 0.94rem; line-height: 1.7; }
 .ecosystem-slide-link { position: relative; z-index: 1; margin-top: 20px; color: var(--text-sub); font-size: 0.78rem; font-weight: 600; }
@@ -1164,6 +1265,28 @@ a.trust-card:hover {
 .ecosystem-position { margin-top: 10px; color: var(--text-dim); text-align: center; font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; }
 
 /* ---------- Responsive ---------- */
+@media (max-width: 1420px) {
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: min(360px, 82%);
+    height: 100vh;
+    flex-direction: column;
+    align-items: flex-start !important;
+    overflow-y: auto;
+    background: rgba(5,5,5,0.98);
+    backdrop-filter: blur(20px);
+    padding: calc(var(--nav-height) + 32px) 32px 40px;
+    gap: 22px;
+    border-left: 1px solid rgba(47,180,165,0.15);
+    transition: right var(--transition);
+    visibility: hidden;
+    pointer-events: none;
+  }
+  .nav-links.open { right: 0; visibility: visible; pointer-events: auto; }
+  .hamburger { display: flex; }
+}
 @media (max-width: 900px) {
   .nav-links {
     position: fixed;
@@ -1195,6 +1318,11 @@ a.trust-card:hover {
   .data-direct-feature-grid { grid-template-columns: minmax(0, 1fr) 220px; gap: 32px; }
   .data-direct-feature-visual { min-height: 180px; }
   .data-direct-feature-visual img { width: min(190px, 84%); }
+  .venture-feature-grid,
+  .venture-feature-grid--reverse { grid-template-columns: minmax(0, 1fr) minmax(250px, 330px); gap: 38px; }
+  .venture-feature-grid--reverse .venture-feature-visual { order: 2; }
+  .venture-feature-grid--reverse .venture-feature-copy { order: 1; }
+  .venture-feature-visual { min-height: 310px; }
   .ecosystem-slide { flex-basis: min(680px, 78vw); }
 }
 @media (max-width: 600px) {
@@ -1211,6 +1339,13 @@ a.trust-card:hover {
   .data-direct-feature-grid { grid-template-columns: 1fr; }
   .data-direct-feature-visual { min-height: 150px; border-left: 0; border-top: 1px solid rgba(47,180,165,0.14); padding-top: 26px; }
   .data-direct-feature-visual img { width: 140px; }
+  .venture-feature-grid,
+  .venture-feature-grid--reverse { grid-template-columns: 1fr; }
+  .venture-feature-visual { min-height: 270px; }
+  .abbe-faria-visual img { width: min(250px, 76%); }
+  .vrf-visual img { width: min(310px, 88%); }
+  .eve-architecture { grid-template-columns: 1fr; }
+  .eve-architecture .how-card { min-height: 0; }
   .ecosystem-slide { flex-basis: 86vw; min-height: 460px; }
   .ecosystem-slide-visual { height: 170px; margin: 20px 0 22px; }
 }
