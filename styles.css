@@ -41,7 +41,7 @@
 
 /* ---------- Reset ---------- */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; scroll-padding-top: var(--nav-height); }
+html { scroll-behavior: smooth; scroll-padding-top: var(--nav-height); overflow-x: hidden; }
 body {
   font-family: var(--font-body);
   background: var(--bg);
@@ -529,6 +529,19 @@ section:nth-child(even) {
 .venture-feature-visual:hover { transform: translateY(-4px); border-color: var(--venture-accent, var(--teal)); }
 .venture-feature-visual:focus-visible { outline: 2px solid var(--venture-accent, var(--teal)); outline-offset: 6px; }
 .venture-feature-visual img { position: relative; z-index: 1; }
+.carrier-services-feature {
+  --venture-accent: #17d963;
+  --venture-glow: rgba(18,210,88,0.2);
+  background:
+    radial-gradient(circle at 22% 44%, rgba(17,216,92,0.09), transparent 24rem),
+    radial-gradient(circle at 84% 56%, rgba(38,95,255,0.09), transparent 28rem),
+    #020403 !important;
+}
+.carrier-services-visual { min-height: 330px; }
+.carrier-services-visual img { width: min(560px, 94%); filter: drop-shadow(0 22px 46px rgba(0,0,0,0.66)); }
+.carrier-services-lockup img { width: 64px; height: 64px; }
+.carrier-services-lockup strong { font-size: 1rem; letter-spacing: 0.15em; }
+.carrier-services-lockup small { color: var(--venture-accent); }
 .abbe-faria-feature {
   --venture-accent: #d9cfb7;
   --venture-glow: rgba(213,198,168,0.2);
@@ -546,6 +559,14 @@ section:nth-child(even) {
     #020507 !important;
 }
 .vrf-visual img { width: min(390px, 92%); filter: drop-shadow(0 20px 38px rgba(0,0,0,0.58)); }
+.hermetiq-feature {
+  --venture-accent: #6ba9ff;
+  --venture-glow: rgba(57,146,255,0.22);
+  background:
+    radial-gradient(circle at 80% 45%, rgba(57,146,255,0.12), transparent 26rem),
+    #020306 !important;
+}
+.hermetiq-visual img { width: min(390px, 88%); filter: drop-shadow(0 22px 46px rgba(57,146,255,0.18)); }
 .venture-lockup { display: flex; align-items: center; gap: 14px; margin: 12px 0 22px; }
 .venture-lockup img { width: 56px; height: 56px; object-fit: contain; }
 .venture-lockup span { display: flex; flex-direction: column; }
@@ -1230,11 +1251,13 @@ a.trust-card:hover {
 .ecosystem-slide-visual img { width: min(250px, 70%); height: 76%; object-fit: contain; filter: drop-shadow(0 12px 32px rgba(0,0,0,0.55)); }
 .ecosystem-slide--data { --ecosystem-accent: #2fbf71; --ecosystem-glow: rgba(47,191,113,0.25); }
 .ecosystem-slide--data .ecosystem-slide-visual img { width: 100%; height: 100%; object-fit: cover; object-position: 26% 50%; opacity: 0.92; }
+.ecosystem-slide--carrier { --ecosystem-accent: #17d963; --ecosystem-glow: rgba(18,210,88,0.23); }
+.ecosystem-slide--carrier .ecosystem-slide-visual img { width: 96%; height: 96%; object-fit: contain; }
 .ecosystem-slide--halt { --ecosystem-accent: #ef4444; --ecosystem-glow: rgba(239,68,68,0.22); }
 .ecosystem-slide--halt .ecosystem-slide-visual { background-color: rgba(30,6,6,0.32); }
 .ecosystem-slide--halt .ecosystem-slide-visual img { width: 170px; height: 170px; }
 .ecosystem-slide--eve { --ecosystem-accent: #2fb4a5; --ecosystem-glow: rgba(47,180,165,0.24); }
-.ecosystem-slide--eve .ecosystem-slide-visual img { width: 150px; height: 150px; object-fit: contain; }
+.ecosystem-slide--eve .ecosystem-slide-visual img { width: 96%; height: 96%; object-fit: contain; }
 .ecosystem-slide--exchange { --ecosystem-accent: #d8b4fe; --ecosystem-glow: rgba(168,85,247,0.22); }
 .ecosystem-slide--exchange .ecosystem-slide-visual img { width: 170px; height: 170px; }
 .ecosystem-slide--quantum { --ecosystem-accent: #6ba9ff; --ecosystem-glow: rgba(57,146,255,0.27); }
@@ -1264,12 +1287,55 @@ a.trust-card:hover {
 .ecosystem-dot.is-active { width: 25px; background: var(--teal); }
 .ecosystem-position { margin-top: 10px; color: var(--text-dim); text-align: center; font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; }
 
+/* ---------- EVE-OS detail page ---------- */
+.eve-detail-page { min-height: 100vh; background: #000; }
+.detail-nav {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  min-height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 5%;
+  border-bottom: 1px solid rgba(47,180,165,0.16);
+  background: rgba(0,0,0,0.9);
+  backdrop-filter: blur(16px);
+}
+.detail-nav img { width: 44px; height: 44px; object-fit: contain; }
+.detail-back { color: var(--text-muted); font-size: 0.82rem; font-weight: 600; letter-spacing: 0.06em; }
+.detail-back:hover, .detail-back:focus-visible { color: var(--text-primary); }
+.detail-hero {
+  min-height: calc(100vh - 68px);
+  display: grid;
+  align-items: center;
+  padding: clamp(70px, 10vw, 120px) 5%;
+  text-align: center;
+  background:
+    radial-gradient(circle at 50% 25%, rgba(57,146,255,0.08), transparent 30rem),
+    radial-gradient(circle at 30% 65%, rgba(6,83,32,0.16), transparent 32rem),
+    #020302;
+}
+.detail-hero-inner { max-width: 1040px; }
+.detail-banner { width: min(940px, 100%); margin: 0 auto 46px; object-fit: contain; filter: drop-shadow(0 28px 70px rgba(0,0,0,0.68)); }
+.detail-hero h1 { max-width: 940px; margin: 0 auto 22px; font-size: clamp(2.4rem, 6vw, 5.5rem); line-height: 1.02; letter-spacing: -0.055em; }
+.detail-lead { max-width: 800px; margin: 0 auto; color: var(--text-muted); font-size: clamp(1rem, 1.6vw, 1.18rem); line-height: 1.8; }
+.detail-actions { display: flex; justify-content: center; flex-wrap: wrap; gap: 14px; margin-top: 34px; }
+.detail-principles { text-align: center; background: #050505 !important; }
+.detail-principles .section-title { max-width: 760px; margin: 0 auto 48px; }
+.detail-principles .how-card { text-align: left; }
+.detail-boundary { background: #020302 !important; }
+.detail-boundary-grid { display: grid; grid-template-columns: minmax(220px, 360px) minmax(0, 1fr); align-items: center; gap: clamp(46px, 9vw, 120px); }
+.detail-boundary-grid > img { width: min(340px, 100%); filter: drop-shadow(0 24px 60px rgba(0,0,0,0.68)); }
+.detail-boundary-grid h2 { max-width: 720px; margin-bottom: 20px; font-size: clamp(2rem, 4vw, 3.8rem); line-height: 1.06; letter-spacing: -0.045em; }
+.detail-boundary-grid p:not(.section-label) { max-width: 720px; margin-bottom: 28px; color: var(--text-muted); line-height: 1.8; }
+
 /* ---------- Responsive ---------- */
 @media (max-width: 1420px) {
   .nav-links {
     position: fixed;
     top: 0;
-    right: -100%;
+    right: 0;
     width: min(360px, 82%);
     height: 100vh;
     flex-direction: column;
@@ -1280,18 +1346,19 @@ a.trust-card:hover {
     padding: calc(var(--nav-height) + 32px) 32px 40px;
     gap: 22px;
     border-left: 1px solid rgba(47,180,165,0.15);
-    transition: right var(--transition);
+    transform: translateX(100%);
+    transition: transform var(--transition);
     visibility: hidden;
     pointer-events: none;
   }
-  .nav-links.open { right: 0; visibility: visible; pointer-events: auto; }
+  .nav-links.open { transform: translateX(0); visibility: visible; pointer-events: auto; }
   .hamburger { display: flex; }
 }
 @media (max-width: 900px) {
   .nav-links {
     position: fixed;
     top: 0;
-    right: -100%;
+    right: 0;
     width: 75%;
     max-width: 320px;
     height: 100vh;
@@ -1301,12 +1368,13 @@ a.trust-card:hover {
     padding: calc(var(--nav-height) + 32px) 32px 32px;
     gap: 24px;
     border-left: 1px solid rgba(47,180,165,0.15);
-    transition: right var(--transition);
+    transform: translateX(100%);
+    transition: transform var(--transition);
     visibility: hidden;
     pointer-events: none;
   }
   .nav-links.open {
-    right: 0;
+    transform: translateX(0);
     visibility: visible;
     pointer-events: auto;
   }
@@ -1342,12 +1410,17 @@ a.trust-card:hover {
   .venture-feature-grid,
   .venture-feature-grid--reverse { grid-template-columns: 1fr; }
   .venture-feature-visual { min-height: 270px; }
+  .carrier-services-visual { min-height: 230px; }
   .abbe-faria-visual img { width: min(250px, 76%); }
   .vrf-visual img { width: min(310px, 88%); }
   .eve-architecture { grid-template-columns: 1fr; }
   .eve-architecture .how-card { min-height: 0; }
   .ecosystem-slide { flex-basis: 86vw; min-height: 460px; }
   .ecosystem-slide-visual { height: 170px; margin: 20px 0 22px; }
+  .detail-banner { margin-bottom: 34px; }
+  .detail-actions .btn { width: 100%; justify-content: center; text-align: center; }
+  .detail-boundary-grid { grid-template-columns: 1fr; text-align: center; }
+  .detail-boundary-grid > img { width: 190px; margin: 0 auto; }
 }
 /* ========== RESEARCH ========== */
 .research-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }

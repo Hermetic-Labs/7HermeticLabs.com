@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // ---------- Mobile Nav ----------
   const hamburger = document.getElementById('hamburger');
   const navLinks  = document.getElementById('navLinks');
-  const mobileNavQuery = window.matchMedia('(max-width: 900px)');
+  const mobileNavQuery = window.matchMedia('(max-width: 1420px)');
 
   const setMobileNavOpen = (isOpen) => {
     const nextOpen = Boolean(isOpen && mobileNavQuery.matches);
