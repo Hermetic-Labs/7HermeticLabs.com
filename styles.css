@@ -594,6 +594,15 @@ section:nth-child(even) {
 .eve-section .eve-access-panel { margin-top: 0; }
 
 /* ---------- Exchange ---------- */
+.exchange-title {
+  max-width: 900px;
+  margin: 0 auto;
+  color: var(--text-primary);
+  font-family: var(--font-accent);
+  font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+  font-weight: 700;
+  line-height: 1.3;
+}
 .exchange-content {
   display: flex;
   align-items: center;
@@ -610,10 +619,23 @@ section:nth-child(even) {
   margin-bottom: 24px;
   line-height: 1.7;
 }
-.exchange-visual {
+.exchange-logo-panel {
   flex: 1;
   position: relative;
+  min-height: 320px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border: 1px solid rgba(47,180,165,0.18);
+  border-radius: var(--radius);
+  background:
+    radial-gradient(circle at 50% 50%, rgba(47,180,165,0.12), transparent 58%),
+    rgba(5,5,5,0.7);
+  transition: transform var(--transition), border-color var(--transition);
 }
+.exchange-logo-panel:hover { transform: translateY(-4px); border-color: rgba(47,180,165,0.48); }
+.exchange-logo-panel:focus-visible { outline: 2px solid var(--teal); outline-offset: 6px; }
+.exchange-logo-panel img { width: min(300px, 74%); filter: drop-shadow(0 20px 40px rgba(0,0,0,0.62)); }
 .exchange-mockup {
   width: 100%;
   border-radius: var(--radius);
@@ -1052,6 +1074,11 @@ a.trust-card:hover {
   height: 100%;
   object-fit: cover;
 }
+.field-gallery {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  max-width: 1080px;
+  margin: 0 auto 48px;
+}
 .stats-row {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
@@ -1249,17 +1276,17 @@ a.trust-card:hover {
   box-shadow: 0 0 18px var(--ecosystem-glow, rgba(47,180,165,0.35));
 }
 .ecosystem-slide-visual img { width: min(250px, 70%); height: 76%; object-fit: contain; filter: drop-shadow(0 12px 32px rgba(0,0,0,0.55)); }
+.ecosystem-slide-video { width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
 .ecosystem-slide--data { --ecosystem-accent: #2fbf71; --ecosystem-glow: rgba(47,191,113,0.25); }
 .ecosystem-slide--data .ecosystem-slide-visual img { width: 100%; height: 100%; object-fit: cover; object-position: 26% 50%; opacity: 0.92; }
 .ecosystem-slide--carrier { --ecosystem-accent: #17d963; --ecosystem-glow: rgba(18,210,88,0.23); }
 .ecosystem-slide--carrier .ecosystem-slide-visual img { width: 96%; height: 96%; object-fit: contain; }
 .ecosystem-slide--halt { --ecosystem-accent: #ef4444; --ecosystem-glow: rgba(239,68,68,0.22); }
 .ecosystem-slide--halt .ecosystem-slide-visual { background-color: rgba(30,6,6,0.32); }
-.ecosystem-slide--halt .ecosystem-slide-visual img { width: 170px; height: 170px; }
 .ecosystem-slide--eve { --ecosystem-accent: #2fb4a5; --ecosystem-glow: rgba(47,180,165,0.24); }
 .ecosystem-slide--eve .ecosystem-slide-visual img { width: 96%; height: 96%; object-fit: contain; }
 .ecosystem-slide--exchange { --ecosystem-accent: #d8b4fe; --ecosystem-glow: rgba(168,85,247,0.22); }
-.ecosystem-slide--exchange .ecosystem-slide-visual img { width: 170px; height: 170px; }
+.ecosystem-slide--exchange .ecosystem-slide-visual { background-color: rgba(5,13,24,0.72); }
 .ecosystem-slide--quantum { --ecosystem-accent: #6ba9ff; --ecosystem-glow: rgba(57,146,255,0.27); }
 .ecosystem-slide--quantum .ecosystem-slide-visual img { width: min(360px, 88%); height: 92%; }
 .ecosystem-slide--abbe { --ecosystem-accent: #d9cfb7; --ecosystem-glow: rgba(213,198,168,0.23); }
@@ -1392,6 +1419,7 @@ a.trust-card:hover {
   .venture-feature-grid--reverse .venture-feature-copy { order: 1; }
   .venture-feature-visual { min-height: 310px; }
   .ecosystem-slide { flex-basis: min(680px, 78vw); }
+  .field-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 600px) {
   :root {
@@ -1417,6 +1445,7 @@ a.trust-card:hover {
   .eve-architecture .how-card { min-height: 0; }
   .ecosystem-slide { flex-basis: 86vw; min-height: 460px; }
   .ecosystem-slide-visual { height: 170px; margin: 20px 0 22px; }
+  .exchange-logo-panel { min-height: 250px; }
   .detail-banner { margin-bottom: 34px; }
   .detail-actions .btn { width: 100%; justify-content: center; text-align: center; }
   .detail-boundary-grid { grid-template-columns: 1fr; text-align: center; }

@@ -124,6 +124,20 @@ document.addEventListener('DOMContentLoaded', () => {
     let carouselIsVisible = true;
     let carouselIsPaused = false;
 
+    const syncSlideVideos = () => {
+      slides.forEach((slide, index) => {
+        const video = slide.querySelector('.ecosystem-slide-video');
+        if (!video) return;
+
+        const shouldPlay = index === activeIndex && carouselIsVisible && !document.hidden && !reducedMotion.matches;
+        if (shouldPlay) {
+          video.play().catch(() => {});
+        } else {
+          video.pause();
+        }
+      });
+    };
+
     const stopAutoplay = () => {
       window.clearInterval(autoplayTimer);
       autoplayTimer = undefined;
@@ -131,6 +145,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const startAutoplay = () => {
       stopAutoplay();
+      syncSlideVideos();
       if (slides.length < 2 || reducedMotion.matches || document.hidden || !carouselIsVisible || carouselIsPaused) return;
       autoplayTimer = window.setInterval(() => updateCarousel(activeIndex + 1), autoplayDelay);
     };
@@ -176,6 +191,7 @@ document.addEventListener('DOMContentLoaded', () => {
         dot.setAttribute('aria-current', isActive ? 'true' : 'false');
       });
       position.textContent = `${String(activeIndex + 1).padStart(2, '0')} / ${String(slides.length).padStart(2, '0')} · ${activeSlide.querySelector('h3')?.textContent || ''}`;
+      syncSlideVideos();
     };
 
     previousButton.addEventListener('click', () => {
