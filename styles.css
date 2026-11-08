@@ -135,7 +135,9 @@
   box-shadow: 0 30px 80px rgba(0,0,0,0.64);
 }
 .labs-mega-intro { padding: 8px 24px 8px 6px; border-right: 1px solid rgba(255,255,255,0.08); }
-.labs-mega-intro > span { color: var(--teal); font: 600 0.66rem var(--font-mono); letter-spacing: 0.15em; text-transform: uppercase; }
+.labs-mega-overview-link { display: inline-block; color: var(--teal); font: 600 0.66rem var(--font-mono); letter-spacing: 0.15em; text-decoration: none; text-transform: uppercase; }
+.labs-mega-overview-link:hover,
+.labs-mega-overview-link:focus-visible { color: var(--text-primary); text-decoration: underline; text-underline-offset: 4px; }
 .labs-mega-intro strong { display: block; margin: 12px 0 8px; font-size: 1.15rem; line-height: 1.35; }
 .labs-mega-intro p { color: var(--text-dim); font-size: 0.76rem; line-height: 1.6; }
 .labs-mega-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }

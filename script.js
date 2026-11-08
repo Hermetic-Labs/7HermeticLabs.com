@@ -288,7 +288,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // ---------- Labs portfolio ----------
   const labTabs = Array.from(document.querySelectorAll('[data-lab-tab]'));
   const labPanels = Array.from(document.querySelectorAll('[data-lab-panel]'));
-  const labLinks = Array.from(document.querySelectorAll('[data-lab-link]'));
+  const labLinks = Array.from(document.querySelectorAll('[data-lab-link], a[href*="labs.html#lab-"]'));
 
   const activateLab = (labId, options = {}) => {
     if (!labTabs.some(tab => tab.dataset.labTab === labId)) return;
@@ -322,10 +322,25 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  const getLabIdFromLink = link => {
+    if (link.dataset.labTarget) return link.dataset.labTarget;
+    const hash = new URL(link.href, window.location.href).hash;
+    return hash.startsWith('#lab-') ? hash.slice(5) : '';
+  };
+
   labLinks.forEach(link => {
     link.addEventListener('click', (event) => {
+      const labId = getLabIdFromLink(link);
+      const destination = new URL(link.href, window.location.href);
+      const currentPath = window.location.pathname.replace(/\/$/, '/index.html');
+      const destinationPath = destination.pathname.replace(/\/$/, '/index.html');
+
+      // Links from another page should perform normal navigation. Once on the
+      // Labs page, handle the fragment locally so the visible tab and panel stay
+      // synchronized with the URL.
+      if (!labId || currentPath !== destinationPath || !labTabs.some(tab => tab.dataset.labTab === labId)) return;
+
       event.preventDefault();
-      const labId = link.dataset.labTarget;
       activateLab(labId);
       closeNavMenus();
       setMobileNavOpen(false);
@@ -334,12 +349,19 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  const requestedLab = window.location.hash.startsWith('#lab-') ? window.location.hash.slice(5) : '';
-  if (requestedLab) {
+  const syncLabFromHash = (scrollBehavior = 'auto') => {
+    const requestedLab = window.location.hash.startsWith('#lab-') ? window.location.hash.slice(5) : '';
+    if (!requestedLab || !labTabs.some(tab => tab.dataset.labTab === requestedLab)) return;
+
     activateLab(requestedLab);
+    closeNavMenus();
+    setMobileNavOpen(false);
     window.requestAnimationFrame(() => {
-      document.getElementById('labs')?.scrollIntoView({ behavior: 'auto', block: 'start' });
+      document.getElementById('labs')?.scrollIntoView({ behavior: scrollBehavior, block: 'start' });
     });
-  }
+  };
+
+  syncLabFromHash();
+  window.addEventListener('hashchange', () => syncLabFromHash('smooth'));
 });
 
