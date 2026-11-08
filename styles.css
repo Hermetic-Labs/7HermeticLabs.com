@@ -95,10 +95,12 @@
 .nav-menu-trigger span { color: var(--teal); font-size: 0.72rem; transition: transform var(--transition); }
 .nav-menu:hover .nav-menu-trigger,
 .nav-menu:focus-within .nav-menu-trigger,
+.nav-menu.is-hover-open .nav-menu-trigger,
 .nav-menu.is-open .nav-menu-trigger,
 .nav-menu-trigger.active { color: var(--text-primary); }
 .nav-menu:hover .nav-menu-trigger span,
 .nav-menu:focus-within .nav-menu-trigger span,
+.nav-menu.is-hover-open .nav-menu-trigger span,
 .nav-menu.is-open .nav-menu-trigger span { transform: rotate(180deg); }
 
 .labs-mega,
@@ -111,6 +113,7 @@
 }
 .nav-menu:hover > .labs-mega,
 .nav-menu:focus-within > .labs-mega,
+.nav-menu.is-hover-open > .labs-mega,
 .nav-menu.is-open > .labs-mega,
 .nav-menu:hover > .company-menu,
 .nav-menu:focus-within > .company-menu,

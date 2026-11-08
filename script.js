@@ -53,13 +53,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ---------- Compact desktop menus ----------
   const navMenus = Array.from(document.querySelectorAll('[data-nav-menu]'));
+  const labsMenu = document.querySelector('.nav-menu--labs');
+  let labsHoverCloseTimer;
+
   const closeNavMenus = (exception) => {
     navMenus.forEach(menu => {
       if (menu === exception) return;
       menu.classList.remove('is-open');
+      menu.classList.remove('is-hover-open');
       menu.querySelector('.nav-menu-trigger')?.setAttribute('aria-expanded', 'false');
     });
   };
+
+  // The Labs panel is much wider than the Company menu, so a quick diagonal
+  // cursor movement can briefly leave the trigger before reaching the panel.
+  // Keep it open for a short grace period while the pointer crosses that gap.
+  labsMenu?.addEventListener('pointerenter', (event) => {
+    if (mobileNavQuery.matches || event.pointerType !== 'mouse') return;
+    window.clearTimeout(labsHoverCloseTimer);
+    labsMenu.classList.add('is-hover-open');
+  });
+
+  labsMenu?.addEventListener('pointerleave', (event) => {
+    if (mobileNavQuery.matches || event.pointerType !== 'mouse') return;
+    window.clearTimeout(labsHoverCloseTimer);
+    labsHoverCloseTimer = window.setTimeout(() => {
+      labsMenu.classList.remove('is-hover-open');
+    }, 260);
+  });
 
   navMenus.forEach(menu => {
     const trigger = menu.querySelector('.nav-menu-trigger');
