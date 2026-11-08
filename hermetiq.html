@@ -18,7 +18,7 @@
   <link rel="apple-touch-icon" href="images/icon.png" sizes="180x180">
 
   <!-- Styles -->
-  <link rel="stylesheet" href="styles.css?v=1.0.3">
+  <link rel="stylesheet" href="styles.css?v=1.4.0">
   <noscript><style>.fade-in{opacity:1!important;transform:none!important}</style></noscript>
   <style>
     /* HermetiQ Page Specific */
@@ -253,17 +253,41 @@
     <a href="index.html" class="nav-brand">
       <img src="images/hermetic-wordmark.png" alt="Hermetic Labs" style="height: 28px; width: auto; opacity: 0.9;">
     </a>
-    <div class="nav-links" id="navLinks" style="align-items: center;">
+    <div class="nav-links" id="navLinks">
       <a href="index.html">Home</a>
-      <a href="index.html#about" class="nav-logo-link" style="display: inline-flex; align-items: center; justify-content: center;"><img src="images/Eve os.png" alt="EVE-OS" style="height: 42px; width: auto; border-radius: 6px; opacity: 0.85; transition: opacity var(--transition), transform var(--transition); position: relative; top: -1px;" onmouseover="this.style.opacity=1; this.style.transform='scale(1.05)';" onmouseout="this.style.opacity=0.85; this.style.transform='scale(1)';"></a>
-      <a href="index.html#in-the-field">In the Field</a>
-      <a href="index.html#exchange">Exchange</a>
-      <a href="index.html#impact">Impact</a>
-      <a href="uk.html">UK</a>
-      <a href="eu.html">EU</a>
-      <a href="index.html#research">Research</a>
-      <a href="hermetiq.html" class="active" style="font-family: var(--font-accent); letter-spacing: 0.05em;">HermetiQ</a>
-      <a href="index.html#contact">Contact</a>
+      <div class="nav-menu nav-menu--labs" data-nav-menu>
+        <button class="nav-menu-trigger" type="button" aria-expanded="false" aria-controls="labsMegaMenu">
+          Labs <span aria-hidden="true">⌄</span>
+        </button>
+        <div class="labs-mega" id="labsMegaMenu">
+          <div class="labs-mega-intro">
+            <span>The portfolio</span>
+            <strong>Distinct responsibilities.<br>One local-first discipline.</strong>
+            <p>Choose a lab to open its dedicated portfolio view.</p>
+          </div>
+          <div class="labs-mega-grid">
+            <a href="labs.html#lab-data-direct"><b>01</b><span><strong>Data Center Direct</strong><small>Civic infrastructure</small></span></a>
+            <a href="labs.html#lab-abbe-faria"><b>02</b><span><strong>Abbé Faria</strong><small>Governed learning</small></span></a>
+            <a href="labs.html#lab-vrf"><b>03</b><span><strong>VRF</strong><small>Embodied worlds</small></span></a>
+            <a href="labs.html#lab-halt"><b>04</b><span><strong>HALT</strong><small>Field coordination</small></span></a>
+            <a href="labs.html#lab-eve-os"><b>05</b><span><strong>EVE-OS</strong><small>Core platform</small></span></a>
+            <a href="labs.html#lab-exchange"><b>06</b><span><strong>Exchange</strong><small>Governed modules</small></span></a>
+            <a href="labs.html#lab-jumbo-jim" class="labs-mega-featured"><b>07</b><span><strong>Jumbo Jim</strong><small>Roadside systems</small></span></a>
+          </div>
+        </div>
+      </div>
+      <a href="research.html" class="active" aria-current="page">Research</a>
+      <a href="impact.html">Impact</a>
+      <div class="nav-menu nav-menu--company" data-nav-menu>
+        <button class="nav-menu-trigger" type="button" aria-expanded="false" aria-controls="companyMenu">
+          Company <span aria-hidden="true">⌄</span>
+        </button>
+        <div class="company-menu" id="companyMenu">
+          <a href="company.html">Company &amp; contact</a>
+          <a href="uk.html">United Kingdom</a>
+          <a href="eu.html">European Union</a>
+        </div>
+      </div>
     </div>
     <button class="hamburger" id="hamburger" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks">
       <span></span><span></span><span></span>
@@ -419,6 +443,6 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="quantum-mesh.js"></script>
-  <script src="script.js?v=1.0.3"></script>
+  <script src="script.js?v=1.4.0"></script>
 </body>
 </html>

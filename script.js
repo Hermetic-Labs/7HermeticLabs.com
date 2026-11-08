@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // ---------- Mobile Nav ----------
   const hamburger = document.getElementById('hamburger');
   const navLinks  = document.getElementById('navLinks');
-  const mobileNavQuery = window.matchMedia('(max-width: 1420px)');
+  const mobileNavQuery = window.matchMedia('(max-width: 960px)');
 
   const setMobileNavOpen = (isOpen) => {
     const nextOpen = Boolean(isOpen && mobileNavQuery.matches);
@@ -51,6 +51,31 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // ---------- Compact desktop menus ----------
+  const navMenus = Array.from(document.querySelectorAll('[data-nav-menu]'));
+  const closeNavMenus = (exception) => {
+    navMenus.forEach(menu => {
+      if (menu === exception) return;
+      menu.classList.remove('is-open');
+      menu.querySelector('.nav-menu-trigger')?.setAttribute('aria-expanded', 'false');
+    });
+  };
+
+  navMenus.forEach(menu => {
+    const trigger = menu.querySelector('.nav-menu-trigger');
+    trigger?.addEventListener('click', (event) => {
+      event.stopPropagation();
+      const nextOpen = !menu.classList.contains('is-open');
+      closeNavMenus(menu);
+      menu.classList.toggle('is-open', nextOpen);
+      trigger.setAttribute('aria-expanded', String(nextOpen));
+    });
+  });
+
+  document.addEventListener('click', (event) => {
+    if (!event.target.closest('[data-nav-menu]')) closeNavMenus();
+  });
+
   document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape' && navLinks.classList.contains('open')) {
       setMobileNavOpen(false);
@@ -67,7 +92,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ---------- Scroll: Active Nav Link ----------
   const sections = document.querySelectorAll('section[id]');
-  const navAnchors = navLinks.querySelectorAll('a');
+  const navAnchors = navLinks.querySelectorAll(':scope > a');
+  const labsTrigger = document.querySelector('.nav-menu--labs .nav-menu-trigger');
+  const companyTrigger = document.querySelector('.nav-menu--company .nav-menu-trigger');
 
   const setActiveLink = () => {
     const scrollY = window.scrollY + 100;
@@ -79,10 +106,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (scrollY >= top && scrollY < bottom) {
         navAnchors.forEach(a => {
+          if (a.getAttribute('aria-current') === 'page') return;
           let targetId = id;
           if (targetId === 'how-it-works') targetId = 'about';
-          a.classList.toggle('active', a.getAttribute('href') === `#${targetId}`);
+          const href = a.getAttribute('href') || '';
+          if (href.startsWith('#')) a.classList.toggle('active', href === `#${targetId}`);
         });
+        if (labsTrigger?.getAttribute('aria-current') !== 'page') labsTrigger?.classList.toggle('active', id === 'labs');
+        if (companyTrigger?.getAttribute('aria-current') !== 'page') companyTrigger?.classList.toggle('active', id === 'contact');
       }
     });
   };
@@ -252,6 +283,63 @@ document.addEventListener('DOMContentLoaded', () => {
 
     updateCarousel(0, false);
     startAutoplay();
+  }
+
+  // ---------- Labs portfolio ----------
+  const labTabs = Array.from(document.querySelectorAll('[data-lab-tab]'));
+  const labPanels = Array.from(document.querySelectorAll('[data-lab-panel]'));
+  const labLinks = Array.from(document.querySelectorAll('[data-lab-link]'));
+
+  const activateLab = (labId, options = {}) => {
+    if (!labTabs.some(tab => tab.dataset.labTab === labId)) return;
+
+    labTabs.forEach(tab => {
+      const active = tab.dataset.labTab === labId;
+      tab.classList.toggle('is-active', active);
+      tab.setAttribute('aria-selected', String(active));
+      tab.tabIndex = active ? 0 : -1;
+      if (active && options.focus) tab.focus();
+    });
+
+    labPanels.forEach(panel => {
+      const active = panel.dataset.labPanel === labId;
+      panel.classList.toggle('is-active', active);
+      panel.hidden = !active;
+    });
+  };
+
+  labTabs.forEach((tab, index) => {
+    tab.addEventListener('click', () => activateLab(tab.dataset.labTab));
+    tab.addEventListener('keydown', (event) => {
+      if (!['ArrowDown', 'ArrowRight', 'ArrowUp', 'ArrowLeft', 'Home', 'End'].includes(event.key)) return;
+      event.preventDefault();
+      let nextIndex = index;
+      if (event.key === 'ArrowDown' || event.key === 'ArrowRight') nextIndex = (index + 1) % labTabs.length;
+      if (event.key === 'ArrowUp' || event.key === 'ArrowLeft') nextIndex = (index - 1 + labTabs.length) % labTabs.length;
+      if (event.key === 'Home') nextIndex = 0;
+      if (event.key === 'End') nextIndex = labTabs.length - 1;
+      activateLab(labTabs[nextIndex].dataset.labTab, { focus: true });
+    });
+  });
+
+  labLinks.forEach(link => {
+    link.addEventListener('click', (event) => {
+      event.preventDefault();
+      const labId = link.dataset.labTarget;
+      activateLab(labId);
+      closeNavMenus();
+      setMobileNavOpen(false);
+      document.getElementById('labs')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      if (window.history?.replaceState) window.history.replaceState(null, '', `#lab-${labId}`);
+    });
+  });
+
+  const requestedLab = window.location.hash.startsWith('#lab-') ? window.location.hash.slice(5) : '';
+  if (requestedLab) {
+    activateLab(requestedLab);
+    window.requestAnimationFrame(() => {
+      document.getElementById('labs')?.scrollIntoView({ behavior: 'auto', block: 'start' });
+    });
   }
 });
 
